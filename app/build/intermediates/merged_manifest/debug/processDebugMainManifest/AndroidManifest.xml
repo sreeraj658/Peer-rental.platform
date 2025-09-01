@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="26"
-        android:targetSdkVersion="34" />
+        android:targetSdkVersion="36" />
 
     <permission
         android:name="com.ezio.unishare.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -37,8 +37,8 @@
         </activity>
         <activity
             android:name="com.ezio.unishare.MainActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
 
         <provider
             android:name="androidx.startup.InitializationProvider"

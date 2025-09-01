@@ -1428,6 +1428,7 @@ color design_fab_stroke_top_inner_color
 color design_fab_stroke_top_outer_color
 color design_icon_tint
 color design_snackbar_background_color
+color desired_focus_blue
 color dim_foreground_disabled_material_dark
 color dim_foreground_disabled_material_light
 color dim_foreground_material_dark
@@ -3017,6 +3018,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable edit_text_background
+drawable edit_text_interactive_background
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
 drawable ic_call_answer_low
@@ -3568,6 +3570,8 @@ id tag_window_insets_animation_callback
 id text
 id text2
 id textEnd
+id textInputLayoutEmail
+id textInputLayoutName
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
@@ -3610,6 +3614,7 @@ id vertical
 id vertical_only
 id view_offset_helper
 id view_transition
+id view_tree_disjoint_parent
 id view_tree_lifecycle_owner
 id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner

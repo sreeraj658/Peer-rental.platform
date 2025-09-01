@@ -5,4 +5,5 @@
 
     <color name="deep_sky_blue">#00BFFF</color>
     <color name="dodger_blue">#1E90FF</color>
+    <color name="desired_focus_blue">#0000FF</color>
 </resources>

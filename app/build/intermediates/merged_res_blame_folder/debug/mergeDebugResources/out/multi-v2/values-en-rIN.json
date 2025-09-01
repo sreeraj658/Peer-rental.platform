@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-29:/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-30:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
                     "source": "C:\\Users\\abhin\\.gradle\\caches\\9.0-milestone-1\\transforms\\7cedce9933a9264005fb4ef7b0b914d3\\transformed\\core-1.13.0\\res\\values-en-rIN\\values-en-rIN.xml",

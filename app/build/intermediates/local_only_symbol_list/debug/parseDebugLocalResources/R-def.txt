@@ -3,10 +3,12 @@ local
 anim button_scale_anim
 color black
 color deep_sky_blue
+color desired_focus_blue
 color dodger_blue
 color white
 drawable button_interactive_background
 drawable edit_text_background
+drawable edit_text_interactive_background
 drawable ic_launcher_background
 drawable loading_screen
 drawable welcome
@@ -15,6 +17,8 @@ id buttonJoin
 id editTextEmail
 id editTextName
 id splashImageView
+id textInputLayoutEmail
+id textInputLayoutName
 id textViewForgotPassword
 id welcomeImageView
 layout activity_main

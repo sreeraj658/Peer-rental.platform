@@ -43,7 +43,8 @@ class MainActivity : AppCompatActivity() {
             val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale_anim)
             it.startAnimation(scaleAnimation)
 
-            Toast.makeText(this, "Navigating to Create Account page...", Toast.LENGTH_SHORT).show()
+            // Show a toast message
+            Toast.makeText(this, "Create Account button clicked!", Toast.LENGTH_SHORT).show()
         }
     }
 }
