@@ -94,6 +94,7 @@ class MainActivity : AppCompatActivity() {
             // Start CreateAccountActivity
             val intent = Intent(this, CreateAccountActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 }

@@ -2,6 +2,10 @@ R_DEF: Internal format may change without notice
 local
 anim button_scale_anim
 anim shake_anim
+anim slide_in_left
+anim slide_in_right
+anim slide_out_left
+anim slide_out_right
 color black
 color custom_text_input_stroke_color
 color deep_sky_blue
@@ -47,4 +51,5 @@ mipmap ic_launcher_round
 string app_name
 string splash_image_description
 string welcome_image_description
-style Theme.PeerRentApp
+style Theme.PeerRentApp.DayNight
+style Theme.PeerRentApp.ForceLight

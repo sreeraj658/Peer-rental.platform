@@ -24,11 +24,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.PeerRentApp" >
+        android:theme="@style/Theme.PeerRentApp.DayNight" > <!-- Default theme for post-login -->
         <activity
             android:name="com.ezio.unishare.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+            android:theme="@style/Theme.PeerRentApp.ForceLight" > <!-- Force Light for Splash -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,12 +38,14 @@
         <activity
             android:name="com.ezio.unishare.MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+            android:theme="@style/Theme.PeerRentApp.ForceLight" > <!-- Force Light for Login -->
+        </activity>
         <activity
             android:name="com.ezio.unishare.CreateAccountActivity"
-            android:exported="false" > <!-- You can adjust the theme -->
+            android:exported="false"
+            android:theme="@style/Theme.PeerRentApp.ForceLight" > <!-- Force Light for Create Account -->
         </activity>
-
+        <!-- Add other post-login activities here; they will inherit Theme.PeerRentApp.DayNight -->
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.ezio.unishare.androidx-startup"

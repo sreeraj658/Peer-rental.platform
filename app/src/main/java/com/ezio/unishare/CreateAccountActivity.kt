@@ -122,4 +122,10 @@ class CreateAccountActivity : AppCompatActivity() {
             }
         }
     }
+
+    // 👇 This must be OUTSIDE onCreate(), inside the class
+    override fun finish() {
+        super.finish()
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
+    }
 }

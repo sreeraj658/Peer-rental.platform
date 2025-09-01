@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -31,6 +32,7 @@
         android:hint="College mail ID"
         app:errorEnabled="true"
         app:boxStrokeErrorColor="@color/error_red"
+        app:hintTextColor="@color/dodger_blue"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +45,6 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:textColor="@android:color/black" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -56,6 +57,7 @@
         app:errorEnabled="true"
         app:passwordToggleEnabled="true"
         app:boxStrokeErrorColor="@color/error_red"
+        app:hintTextColor="@color/dodger_blue"
         app:layout_constraintBottom_toTopOf="@+id/buttonJoin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +70,6 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:textColor="@android:color/black" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
