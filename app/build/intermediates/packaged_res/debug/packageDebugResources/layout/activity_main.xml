@@ -29,6 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="College mail ID"
+        app:errorEnabled="true"
+        app:boxStrokeErrorColor="@color/error_red"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayoutEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +41,7 @@
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName|textCapWords"
+            android:inputType="textEmailAddress"
             android:textColor="@android:color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -51,6 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:hint="Password"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true"
+        app:boxStrokeErrorColor="@color/error_red"
         app:layout_constraintBottom_toTopOf="@+id/buttonJoin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -37,7 +37,7 @@
         android:layout_marginTop="24dp"
         app:errorEnabled="true"
         app:boxStrokeErrorColor="@color/error_red"
-        app:hintTextColor="@color/error_red">
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextFirstName"

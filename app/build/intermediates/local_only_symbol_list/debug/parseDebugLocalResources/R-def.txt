@@ -3,6 +3,7 @@ local
 anim button_scale_anim
 anim shake_anim
 color black
+color custom_text_input_stroke_color
 color deep_sky_blue
 color desired_focus_blue
 color dodger_blue

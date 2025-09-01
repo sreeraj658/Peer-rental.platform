@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.ezio.unishare.app-debug-32:/drawable_button_interactive_background.xml.flat",
+        "source": "com.ezio.unishare.app-main-34:/drawable/button_interactive_background.xml"
+    },
+    {
         "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\mipmap-hdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-hdpi\\ic_launcher_round.webp"
     },
@@ -12,20 +16,24 @@
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
-        "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
-    },
-    {
         "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\drawable_edit_text_interactive_background.xml.flat",
-        "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\drawable\\edit_text_interactive_background.xml"
+        "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.ezio.unishare.app-debug-32:/color_custom_text_input_stroke_color.xml.flat",
+        "source": "com.ezio.unishare.app-main-34:/color/custom_text_input_stroke_color.xml"
     },
     {
         "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\drawable_edit_text_interactive_background.xml.flat",
+        "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\drawable\\edit_text_interactive_background.xml"
     },
     {
         "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\drawable_loading_screen.png.flat",
@@ -110,9 +118,5 @@
     {
         "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\drawable\\ic_launcher_background.xml"
-    },
-    {
-        "merged": "com.ezio.unishare.app-debug-32:/anim_shake_anim.xml.flat",
-        "source": "com.ezio.unishare.app-main-34:/anim/shake_anim.xml"
     }
 ]
