@@ -22,6 +22,10 @@
             android:name=".MainActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
+        <activity
+            android:name=".CreateAccountActivity"
+            android:exported="false"> <!-- You can adjust the theme -->
+        </activity>
     </application>
 
 </manifest>

@@ -1,10 +1,12 @@
 R_DEF: Internal format may change without notice
 local
 anim button_scale_anim
+anim shake_anim
 color black
 color deep_sky_blue
 color desired_focus_blue
 color dodger_blue
+color error_red
 color white
 drawable button_interactive_background
 drawable edit_text_background
@@ -13,14 +15,29 @@ drawable ic_launcher_background
 drawable loading_screen
 drawable welcome
 id buttonCreateAccount
+id buttonCreateAccountSubmit
 id buttonJoin
+id editTextCollegeEmail
+id editTextConfirmPassword
 id editTextEmail
+id editTextFirstName
+id editTextLastName
 id editTextName
+id editTextPassword
+id editTextPhone
 id splashImageView
+id textInputLayoutCollegeEmail
+id textInputLayoutConfirmPassword
 id textInputLayoutEmail
+id textInputLayoutFirstName
+id textInputLayoutLastName
 id textInputLayoutName
+id textInputLayoutPassword
+id textInputLayoutPhone
+id textViewCreateAccountTitle
 id textViewForgotPassword
 id welcomeImageView
+layout activity_create_account
 layout activity_main
 layout activity_splash
 mipmap ic_launcher

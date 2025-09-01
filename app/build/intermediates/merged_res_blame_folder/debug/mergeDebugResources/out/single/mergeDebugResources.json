@@ -12,12 +12,12 @@
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\drawable_edit_text_interactive_background.xml.flat",
@@ -84,6 +84,10 @@
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
+        "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\anim_shake_anim.xml.flat",
+        "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\anim\\shake_anim.xml"
+    },
+    {
         "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\layout_activity_create_account.xml.flat",
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\layout\\activity_create_account.xml"
     },
@@ -106,5 +110,9 @@
     {
         "merged": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-debug-32:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\abhin\\.gradle\\daemon\\9.0-milestone-1\\com.ezio.unishare.app-main-34:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.ezio.unishare.app-debug-32:/anim_shake_anim.xml.flat",
+        "source": "com.ezio.unishare.app-main-34:/anim/shake_anim.xml"
     }
 ]

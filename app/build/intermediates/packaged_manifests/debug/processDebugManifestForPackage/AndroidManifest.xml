@@ -39,6 +39,10 @@
             android:name="com.ezio.unishare.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
+        <activity
+            android:name="com.ezio.unishare.CreateAccountActivity"
+            android:exported="false" > <!-- You can adjust the theme -->
+        </activity>
 
         <provider
             android:name="androidx.startup.InitializationProvider"

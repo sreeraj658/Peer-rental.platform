@@ -4,6 +4,7 @@
     <color name="deep_sky_blue">#00BFFF</color>
     <color name="desired_focus_blue">#0000FF</color>
     <color name="dodger_blue">#1E90FF</color>
+    <color name="error_red">#FF0000</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">UniShare</string>
     <string name="splash_image_description">Splash screen image</string>
@@ -17,5 +18,9 @@
         <item name="colorOnSecondary">@color/white</item>
 
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        
+        <item name="colorError">@color/error_red</item>
+        <item name="colorOnError">@color/white</item>
     </style>
 </resources>

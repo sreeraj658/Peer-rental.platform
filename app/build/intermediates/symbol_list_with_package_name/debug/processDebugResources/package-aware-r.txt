@@ -44,6 +44,7 @@ anim m3_side_sheet_exit_to_right
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
+anim shake_anim
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -1436,6 +1437,7 @@ color dim_foreground_material_light
 color dodger_blue
 color error_color_material_dark
 color error_color_material_light
+color error_red
 color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
@@ -3218,6 +3220,7 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id buttonCreateAccount
+id buttonCreateAccountSubmit
 id buttonJoin
 id buttonPanel
 id cache_measures
@@ -3292,8 +3295,14 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editTextCollegeEmail
+id editTextConfirmPassword
 id editTextEmail
+id editTextFirstName
+id editTextLastName
 id editTextName
+id editTextPassword
+id editTextPhone
 id edit_query
 id edit_text_id
 id elastic
@@ -3570,12 +3579,19 @@ id tag_window_insets_animation_callback
 id text
 id text2
 id textEnd
+id textInputLayoutCollegeEmail
+id textInputLayoutConfirmPassword
 id textInputLayoutEmail
+id textInputLayoutFirstName
+id textInputLayoutLastName
 id textInputLayoutName
+id textInputLayoutPassword
+id textInputLayoutPhone
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textTop
+id textViewCreateAccountTitle
 id textViewForgotPassword
 id text_input_end_icon
 id text_input_error_icon
@@ -3745,6 +3761,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_create_account
 layout activity_main
 layout activity_splash
 layout custom_dialog
