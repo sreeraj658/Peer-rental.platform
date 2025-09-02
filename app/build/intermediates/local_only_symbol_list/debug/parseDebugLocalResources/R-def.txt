@@ -49,12 +49,14 @@ id textViewForgetInstruction
 id textViewForgotPassword
 id textViewOtpTimer
 id textViewPasswordCriteriaErrors
+id textViewPasswordCriteriaErrorsCreate
 id textViewResendOtp
 id textViewSetPasswordTitle
 id welcomeImageView
 layout activity_create_account
 layout activity_forget
 layout activity_main
+layout activity_otp_verification
 layout activity_set_new_password
 layout activity_splash
 mipmap ic_launcher

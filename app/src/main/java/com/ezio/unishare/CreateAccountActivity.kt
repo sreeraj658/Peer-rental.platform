@@ -1,6 +1,6 @@
 package com.ezio.unishare
 
-import android.content.Intent // Added for Intent
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -23,7 +23,7 @@ class CreateAccountActivity : AppCompatActivity() {
     private val hasUpperCasePattern = ".*[A-Z].*".toRegex()
     private val hasLowerCasePattern = ".*[a-z].*".toRegex()
     private val hasDigitPattern = ".*\\d.*".toRegex()
-    private val hasSpecialCharPattern = ".*[!@#\$%^&*()_+\\-=\\[\\]{};':\\\"\\\\|,.<>/?].*".toRegex()
+    private val hasSpecialCharPattern = ".*[!@#$%^&*()_+\\-=\\[\\]{};':\\\"\\\\|,.<>/?].*".toRegex()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,9 +72,11 @@ class CreateAccountActivity : AppCompatActivity() {
         addTextWatcherToClearError(confirmPasswordEditText, confirmPasswordLayout)
 
         createAccountButton.setOnClickListener {
+            // Apply scale animation
             val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale_anim)
             it.startAnimation(scaleAnimation)
 
+            // Existing logic for fetching values and validation
             val firstName = firstNameEditText.text.toString().trim()
             val lastName = lastNameEditText.text.toString().trim()
             val email = collegeEmailEditText.text.toString().trim()
@@ -111,8 +113,8 @@ class CreateAccountActivity : AppCompatActivity() {
                 emailLayout.error = "Enter a valid email address"
                 emailLayout.startAnimation(shake)
                 isValid = false
-            } else if (!email.lowercase().endsWith(".in")) { // Current check from your file
-                emailLayout.error = "please enter a valid educational email" // Current message
+            } else if (!email.lowercase().endsWith(".in")) { 
+                emailLayout.error = "please enter a valid educational email" 
                 emailLayout.startAnimation(shake)
                 isValid = false
             } else {
@@ -151,13 +153,13 @@ class CreateAccountActivity : AppCompatActivity() {
                     errorMessages.add("Password must contain at least one digit.")
                 }
                 if (!password.matches(hasSpecialCharPattern)) {
-                    errorMessages.add("Password must contain at least one special character (e.g., !@#\$%^&*).")
+                    errorMessages.add("Password must contain at least one special character (e.g., !@#$%^&*).")
                 }
 
                 if (errorMessages.isNotEmpty()) {
                     textViewPasswordCriteriaErrorsCreate.text = errorMessages.joinToString("\\n")
                     textViewPasswordCriteriaErrorsCreate.visibility = View.VISIBLE
-                    passwordLayout.error = "Please check password criteria below." // Adjusted message
+                    passwordLayout.error = "Please check password criteria below."
                     passwordLayout.startAnimation(shake)
                     isValid = false
                 } else {
@@ -167,7 +169,7 @@ class CreateAccountActivity : AppCompatActivity() {
 
             // --- Confirm Password Validation ---
             if (password.isEmpty() && confirmPassword.isEmpty()) {
-                confirmPasswordLayout.error = null
+                confirmPasswordLayout.error = null // No error if both are empty
             } else if (confirmPassword.isEmpty()) {
                 confirmPasswordLayout.error = "Confirm password is required"
                 confirmPasswordLayout.startAnimation(shake)
@@ -182,28 +184,25 @@ class CreateAccountActivity : AppCompatActivity() {
 
 
             if (isValid) {
-                // TODO: Here you would typically initiate the account creation process on your backend
-                // For now, we'll proceed directly to OTP verification.
-                // The actual OTP should be sent by your backend after receiving user details.
-
                 Toast.makeText(this, "Proceeding to OTP verification...", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this, OtpVerificationActivity::class.java).apply {
                     putExtra(OtpVerificationActivity.EXTRA_VERIFICATION_TARGET, email)
                 }
                 startActivity(intent)
+                // Apply forward animation
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                
                 // If you want CreateAccountActivity to finish after navigating to OTP, add finish() here.
-                // For a typical create account -> OTP flow, you might want this activity to finish.
                 // finish()
             } else {
                 Toast.makeText(this, "Please correct the errors.", Toast.LENGTH_SHORT).show()
             }
-        }
-    }
+        } // End of createAccountButton.setOnClickListener
+    } // End of onCreate
 
     override fun finish() {
         super.finish()
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right)
     }
-}
-
+} // End of CreateAccountActivity class
