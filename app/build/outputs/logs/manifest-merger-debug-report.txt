@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:2:1-33:12
-INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:2:1-33:12
+ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:2:1-38:12
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\abhin\.gradle\caches\9.0-milestone-1\transforms\02ca77d47e034b6981278748199bd969\transformed\material-1.12.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] C:\Users\abhin\.gradle\caches\9.0-milestone-1\transforms\7452e04c87809a5265fdb9285b3c49e2\transformed\constraintlayout-2.2.0\AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.appcompat:appcompat-resources:1.7.0] C:\Users\abhin\.gradle\caches\9.0-milestone-1\transforms\dad6beaa2263534cbc08b0b930e46533\transformed\jetified-appcompat-resources-1.7.0\AndroidManifest.xml:2:1-7:12
@@ -55,8 +55,8 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\abhin\.gradle\caches\9.0-miles
 	xmlns:android
 		ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:4:5-31:19
-INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:4:5-31:19
+ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:4:5-36:19
+INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:4:5-36:19
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\abhin\.gradle\caches\9.0-milestone-1\transforms\02ca77d47e034b6981278748199bd969\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.12.0] C:\Users\abhin\.gradle\caches\9.0-milestone-1\transforms\02ca77d47e034b6981278748199bd969\transformed\material-1.12.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.2.0] C:\Users\abhin\.gradle\caches\9.0-milestone-1\transforms\7452e04c87809a5265fdb9285b3c49e2\transformed\constraintlayout-2.2.0\AndroidManifest.xml:7:5-20
@@ -123,6 +123,14 @@ ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:25:9-2
 		ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:28:13-64
 	android:name
 		ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:26:13-50
+activity#com.ezio.unishare.ForgetActivity
+ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:30:9-34:20
+	android:exported
+		ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:32:13-37
+	android:theme
+		ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:33:13-64
+	android:name
+		ADDED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml:31:13-43
 uses-sdk
 INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\abhin\Music\UniShare\app\src\main\AndroidManifest.xml

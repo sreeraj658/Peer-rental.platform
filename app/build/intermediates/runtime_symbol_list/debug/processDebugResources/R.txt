@@ -3226,6 +3226,7 @@ int id buttonCreateAccount 0x7f080065
 int id buttonCreateAccountSubmit 0x7f080066
 int id buttonJoin 0x7f080067
 int id buttonPanel 0x7f080068
+int id buttonVerifyOtp 0x7f080211
 int id cache_measures 0x7f080069
 int id callMeasure 0x7f08006a
 int id cancel_button 0x7f08006b
@@ -3304,6 +3305,7 @@ int id editTextEmail 0x7f0800b3
 int id editTextFirstName 0x7f0800b4
 int id editTextLastName 0x7f0800b5
 int id editTextName 0x7f0800b6
+int id editTextOtp 0x7f080212
 int id editTextPassword 0x7f0800b7
 int id editTextPhone 0x7f0800b8
 int id edit_query 0x7f0800b9
@@ -3595,7 +3597,10 @@ int id textSpacerNoTitle 0x7f0801d6
 int id textStart 0x7f0801d7
 int id textTop 0x7f0801d8
 int id textViewCreateAccountTitle 0x7f0801d9
+int id textViewForgetInstruction 0x7f080214
 int id textViewForgotPassword 0x7f0801da
+int id textViewOtpTimer 0x7f080217
+int id textViewResendOtp 0x7f080215
 int id text_input_end_icon 0x7f0801db
 int id text_input_error_icon 0x7f0801dc
 int id text_input_start_icon 0x7f0801dd
@@ -3765,6 +3770,7 @@ int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
 int layout activity_create_account 0x7f0b001c
+int layout activity_forget 0x7f0b006e
 int layout activity_main 0x7f0b001d
 int layout activity_splash 0x7f0b001e
 int layout custom_dialog 0x7f0b001f

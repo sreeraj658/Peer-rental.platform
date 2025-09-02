@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.animation.Animation
+import android.view.animation.Animation // Keep this if shakeAnimation is used, or AnimationUtils for others
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView // Import TextView
 import android.widget.Toast
-import com.google.android.material.textfield.TextInputLayout // Added import
+import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         val joinButton = findViewById<Button>(R.id.buttonJoin)
         val createAccountButton = findViewById<Button>(R.id.buttonCreateAccount)
+        val forgotPasswordTextView = findViewById<TextView>(R.id.textViewForgotPassword) // Find the TextView
 
         // Load animations
         val shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake_anim)
@@ -53,48 +55,54 @@ class MainActivity : AppCompatActivity() {
             val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale_anim)
             it.startAnimation(scaleAnimation)
 
-            val collegeMail = nameEditText.text.toString().trim() // Changed variable name for clarity
-            val password = emailEditText.text.toString().trim()   // Changed variable name for clarity
+            val collegeMail = nameEditText.text.toString().trim()
+            val password = emailEditText.text.toString().trim()
 
             var isValid = true
 
-            // Validation for College Mail ID
             if (collegeMail.isBlank()) {
                 nameTextInputLayout.error = "College mail ID is required"
                 nameTextInputLayout.startAnimation(shakeAnimation)
                 isValid = false
             } else {
-                nameTextInputLayout.error = null // Clear error if previously set
+                nameTextInputLayout.error = null
             }
 
-            // Validation for Password
             if (password.isBlank()) {
                 emailTextInputLayout.error = "Password is required"
                 emailTextInputLayout.startAnimation(shakeAnimation)
                 isValid = false
             } else {
-                emailTextInputLayout.error = null // Clear error if previously set
+                emailTextInputLayout.error = null
             }
 
             if (isValid) {
                 Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show()
                 // TODO: Add actual login logic here
-            } else {
-                // Optional: A general toast if there are errors, or rely on individual field errors
-                // Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             }
         }
 
         // Set a click listener for the CREATE ACCOUNT button
         createAccountButton.setOnClickListener {
-            // Load another new animation instance for this specific click
             val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale_anim)
             it.startAnimation(scaleAnimation)
-
-            // Start CreateAccountActivity
             val intent = Intent(this, CreateAccountActivity::class.java)
             startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left) // Your existing animation
+        }
+
+        // Set a click listener for the FORGOT PASSWORD TextView
+        forgotPasswordTextView.setOnClickListener {
+            // Optional: Add a small animation for visual feedback if desired
+            // val clickFeedbackAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale_anim) // or any other subtle anim
+            // it.startAnimation(clickFeedbackAnimation)
+
+            val intent = Intent(this, ForgetActivity::class.java)
+            startActivity(intent)
+            // Optional: Add a transition animation for opening ForgetActivity
+            // overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) // Example: fade
+            // or your custom slide animations if you have them for this transition
+            // overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 }

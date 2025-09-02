@@ -27,6 +27,11 @@
             android:exported="false"
             android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Create Account -->
         </activity>
+        <activity
+            android:name=".ForgetActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Forget Password/OTP -->
+        </activity>
         <!-- Add other post-login activities here; they will inherit Theme.PeerRentApp.DayNight -->
     </application>
 
