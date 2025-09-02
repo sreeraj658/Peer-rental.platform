@@ -131,7 +131,7 @@ class SetNewPasswordActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            Toast.makeText(this, "Password successfully set (placeholder)!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Password successfully set ", Toast.LENGTH_LONG).show()
             finish()
         }
     }

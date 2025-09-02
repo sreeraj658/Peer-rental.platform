@@ -24,7 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/Theme.PeerRentApp.DayNight" > <!-- Default theme for post-login -->
+        android:theme="@style/Theme.PeerRentApp.ForceLight" >
         <activity android:name="com.ezio.unishare.SetNewPasswordActivity" />
         <activity
             android:name="com.ezio.unishare.SplashActivity"
@@ -50,6 +50,11 @@
             android:name="com.ezio.unishare.ForgetActivity"
             android:exported="false"
             android:theme="@style/Theme.PeerRentApp.ForceLight" > <!-- Force Light for Forget Password/OTP -->
+        </activity>
+        <activity
+            android:name="com.ezio.unishare.OtpVerificationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PeerRentApp.ForceLight" > <!-- Force Light for OTP Verification -->
         </activity>
         <!-- Add other post-login activities here; they will inherit Theme.PeerRentApp.DayNight -->
         <provider

@@ -3604,6 +3604,7 @@ int id textViewForgetInstruction 0x7f0801df
 int id textViewForgotPassword 0x7f0801e0
 int id textViewOtpTimer 0x7f0801e1
 int id textViewPasswordCriteriaErrors 0x7f0801e2
+int id textViewPasswordCriteriaErrorsCreate 0x7f08021b
 int id textViewResendOtp 0x7f0801e3
 int id textViewSetPasswordTitle 0x7f0801e4
 int id text_input_end_icon 0x7f0801e5
@@ -3777,6 +3778,7 @@ int layout abc_tooltip 0x7f0b001b
 int layout activity_create_account 0x7f0b001c
 int layout activity_forget 0x7f0b001d
 int layout activity_main 0x7f0b001e
+int layout activity_otp_verification 0x7f0b0070
 int layout activity_set_new_password 0x7f0b001f
 int layout activity_splash 0x7f0b0020
 int layout custom_dialog 0x7f0b0021
