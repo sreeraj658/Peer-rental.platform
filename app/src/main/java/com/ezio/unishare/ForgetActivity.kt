@@ -1,5 +1,6 @@
 package com.ezio.unishare
 
+import android.content.Intent // Added import
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -8,8 +9,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import java.util.Locale
-// Import these if you plan to use the example animations
-// import android.view.animation.AnimationUtils
 
 class ForgetActivity : AppCompatActivity() {
 
@@ -29,66 +28,63 @@ class ForgetActivity : AppCompatActivity() {
         editTextOtp = findViewById(R.id.editTextOtp)
         buttonVerifyOtp = findViewById(R.id.buttonVerifyOtp)
         textViewResendOtp = findViewById(R.id.textViewResendOtp)
-        textViewOtpTimer = findViewById(R.id.textViewOtpTimer) // Initialize the timer TextView
-
-        // Optional: Load animations if you plan to use them
-        // val shake = AnimationUtils.loadAnimation(this, R.anim.shake_anim) // You'd need to create shake_anim.xml
-        // val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale_anim) // You'd need to create button_scale_anim.xml
+        textViewOtpTimer = findViewById(R.id.textViewOtpTimer)
 
         buttonVerifyOtp.setOnClickListener {
-            // it.startAnimation(scaleAnimation) // Optional animation
             val otp = editTextOtp.text.toString().trim()
 
             if (otp.isEmpty()) {
                 editTextOtp.error = "OTP is required"
-                // editTextOtp.startAnimation(shake) // Optional animation
                 Toast.makeText(this, "Please enter the OTP.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             if (otp.length != 6) {
                 editTextOtp.error = "OTP must be 6 digits"
-                // editTextOtp.startAnimation(shake) // Optional animation
                 Toast.makeText(this, "OTP must be 6 digits.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             // --- OTP Verification Logic ---
             // TODO: Implement your actual OTP verification logic here
-            Toast.makeText(this, "Verifying OTP: $otp", Toast.LENGTH_LONG).show()
-
-            if (otp == "123456") { 
+            // For example, compare with an OTP sent to the user or verify with a backend service.
+            // The "123456" is a placeholder for successful verification.
+            if (otp == "123456") { // Replace "123456" with your actual OTP success condition
                 Toast.makeText(this, "OTP Verified Successfully!", Toast.LENGTH_LONG).show()
                 countDownTimer?.cancel() // Stop timer on successful verification
-                finish()
+
+                // Navigate to SetNewPasswordActivity
+                val intent = Intent(this, SetNewPasswordActivity::class.java)
+                // You might want to pass some identifier from the previous screen if needed, e.g.:
+                // intent.putExtra("USER_EMAIL", getIntent().getStringExtra("USER_EMAIL_KEY"))
+                startActivity(intent)
+                finish() // Finish ForgetActivity so the user cannot navigate back to it
             } else {
                 Toast.makeText(this, "Invalid OTP. Please try again.", Toast.LENGTH_LONG).show()
-                // editTextOtp.startAnimation(shake) // Optional animation
             }
         }
 
         textViewResendOtp.setOnClickListener {
             if (!isTimerRunning) {
                 // TODO: Implement your actual OTP resend logic here
-                // For example, make a network call to your backend to request a new OTP.
                 Toast.makeText(this, "Resending OTP...", Toast.LENGTH_SHORT).show()
-                startTimer() // Restart the timer
+                startTimer()
             } else {
                 Toast.makeText(this, "Please wait for the current timer to finish.", Toast.LENGTH_SHORT).show()
             }
         }
 
-        startTimer() // Start the timer when the activity is created
+        startTimer()
     }
 
     private fun startTimer() {
-        countDownTimer?.cancel() // Cancel any existing timer
+        countDownTimer?.cancel()
 
         isTimerRunning = true
-        textViewResendOtp.isEnabled = false // Disable resend while timer is active
-        textViewResendOtp.alpha = 0.5f // Visually indicate disabled state
+        textViewResendOtp.isEnabled = false
+        textViewResendOtp.alpha = 0.5f
 
-        countDownTimer = object : CountDownTimer(otpTimerDuration, 1000) { // Tick every second
+        countDownTimer = object : CountDownTimer(otpTimerDuration, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val minutes = (millisUntilFinished / 1000) / 60
                 val seconds = (millisUntilFinished / 1000) % 60
@@ -98,7 +94,7 @@ class ForgetActivity : AppCompatActivity() {
             override fun onFinish() {
                 isTimerRunning = false
                 textViewOtpTimer.text = "00:00"
-                textViewResendOtp.isEnabled = true // Re-enable resend
+                textViewResendOtp.isEnabled = true
                 textViewResendOtp.alpha = 1.0f
                 Toast.makeText(this@ForgetActivity, "Timer finished. You can now resend OTP.", Toast.LENGTH_SHORT).show()
             }
@@ -107,6 +103,6 @@ class ForgetActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        countDownTimer?.cancel() // Important to prevent memory leaks
+        countDownTimer?.cancel()
     }
 }

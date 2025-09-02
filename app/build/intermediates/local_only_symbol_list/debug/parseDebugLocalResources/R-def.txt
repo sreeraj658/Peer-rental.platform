@@ -22,6 +22,7 @@ drawable welcome
 id buttonCreateAccount
 id buttonCreateAccountSubmit
 id buttonJoin
+id buttonSetNewPassword
 id buttonVerifyOtp
 id editTextCollegeEmail
 id editTextConfirmPassword
@@ -29,6 +30,7 @@ id editTextEmail
 id editTextFirstName
 id editTextLastName
 id editTextName
+id editTextNewPassword
 id editTextOtp
 id editTextPassword
 id editTextPhone
@@ -39,17 +41,21 @@ id textInputLayoutEmail
 id textInputLayoutFirstName
 id textInputLayoutLastName
 id textInputLayoutName
+id textInputLayoutNewPassword
 id textInputLayoutPassword
 id textInputLayoutPhone
 id textViewCreateAccountTitle
 id textViewForgetInstruction
 id textViewForgotPassword
 id textViewOtpTimer
+id textViewPasswordCriteriaErrors
 id textViewResendOtp
+id textViewSetPasswordTitle
 id welcomeImageView
 layout activity_create_account
 layout activity_forget
 layout activity_main
+layout activity_set_new_password
 layout activity_splash
 mipmap ic_launcher
 mipmap ic_launcher_foreground

@@ -8,6 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PeerRentApp.DayNight"> <!-- Default theme for post-login -->
+        <activity android:name=".SetNewPasswordActivity" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
