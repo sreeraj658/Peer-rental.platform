@@ -5581,9 +5581,9 @@
                     "from": {
                         "startLines": "1,2,3",
                         "startColumns": "4,4,4",
-                        "startOffsets": "16,62,135",
+                        "startOffsets": "17,64,138",
                         "endColumns": "45,72,80",
-                        "endOffsets": "57,130,211"
+                        "endOffsets": "58,132,214"
                     },
                     "to": {
                         "startLines": "1986,2134,2136",
