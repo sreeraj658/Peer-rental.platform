@@ -12,11 +12,13 @@ color deep_sky_blue
 color desired_focus_blue
 color dodger_blue
 color error_red
+color ic_launcher_background
 color white
 drawable button_interactive_background
 drawable edit_text_background
 drawable edit_text_interactive_background
-drawable ic_launcher_background
+drawable ic_banner_image
+drawable ic_mic
 drawable loading_screen
 drawable welcome
 id buttonCreateAccount

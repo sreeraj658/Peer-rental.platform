@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.TextView // Import TextView
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
+import com.ezio.unishare.HomeActivity // Import HomeActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,8 +78,17 @@ class MainActivity : AppCompatActivity() {
             }
 
             if (isValid) {
+                // For now, we'll navigate directly.
+                // In a real app, you'd verify credentials before navigating.
                 Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show()
-                // TODO: Add actual login logic here
+
+                // Your navigation code integrated here:
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+                // If you want to prevent the user from going back to MainActivity after login,
+                // you can add finish() here:
+                // finish()
             }
         }
 

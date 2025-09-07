@@ -79,7 +79,8 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="C:\Users\abhin\Downloads\Gemini_Generated_Image_2m29dy2m29dy2m29.png" />
+                                                <entry key="imagePath" value="C:\Users\abhin\Downloads\Gemini_Generated_Image_s3kck9s3kck9s3kc.png" />
+                                                <entry key="scalingPercent" value="73" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -111,6 +112,9 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="backgroundAssetType" value="COLOR" />
+                                      <entry key="backgroundColor" value="180207" />
+                                      <entry key="legacyIconShape" value="CIRCLE" />
                                       <entry key="previewDensity" value="hdpi" />
                                     </map>
                                   </option>

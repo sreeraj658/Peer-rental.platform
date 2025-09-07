@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.compose' // Added this line
 }
 
 android {
@@ -28,6 +29,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    // Added features
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.3" // use latest stable (might be overridden or unnecessary with the new plugin)
+    }
 }
 
 dependencies {
@@ -36,4 +44,20 @@ dependencies {
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     implementation 'androidx.activity:activity:1.10.1'
+
+    // Added Compose dependencies
+    implementation "androidx.activity:activity-compose:1.7.2"
+    implementation "androidx.compose.ui:ui:1.5.3"
+    implementation "androidx.compose.material3:material3:1.1.2"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.5.3"
+    debugImplementation "androidx.compose.ui:ui-tooling:1.5.3"
+    implementation("androidx.compose.material:material-icons-extended:1.5.3") // Added this line
+
+    // Coil for image loading
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    // The Compose Compiler is now a plugin, but sometimes you also add it as a dependency
+    // if the plugin alone doesn't resolve. Let's try with just the plugin first.
+    // implementation "androidx.compose.compiler:compiler:X.Y.Z" // (This line is usually not needed if the plugin is set up correctly)
 }
+
