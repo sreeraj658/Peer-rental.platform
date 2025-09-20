@@ -98,3 +98,6 @@ test-results/
 
 # Memory Dumps (for debugging, can be huge)
 *.hprof
+
+gitignore
+    UniShare.git/
