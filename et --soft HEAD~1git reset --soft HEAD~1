@@ -1,0 +1,184 @@
+[33mcommit 9b6a02203abfd67ae0c81fe0fd8c5ebd7a141ee7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mHome_Page[m[33m)[m
+Author: abhinand <abhinandlaji123@gmail.com>
+Date:   Sun Sep 7 08:54:18 2025 +0530
+
+    Initial commit: UniShare starter login page with create new acc(loginpage  finished)
+
+ .idea/inspectionProfiles/Project_Default.xml       |  61 [32m++++++[m
+ .../dex/debug/mergeExtDexDebug/classes2.dex        | Bin [31m0[m -> [32m11232688[m bytes
+ .../dex/debug/mergeExtDexDebug/classes3.dex        | Bin [31m0[m -> [32m4713436[m bytes
+ .../dex/debug/mergeProjectDexDebug/6/classes.dex   | Bin [31m0[m -> [32m18184[m bytes
+ .../zip-cache/+sOYIvxRZFQJNNAviwLpew==             |   1 [32m+[m
+ .../zip-cache/04mpATYFcDQ3RFu6VrVxaw==             |   1 [32m+[m
+ .../zip-cache/0W1DhiVNSeCUGMhlP0R_rg==             |   1 [32m+[m
+ .../zip-cache/18gVcOKiTEWHLYGxBL3w2Q==             |   1 [32m+[m
+ .../zip-cache/1yy4BVPhqJGsyl0YdI8FfA==             |   1 [32m+[m
+ .../zip-cache/3w3hTPKnAcnR7fM7ienvUA==             |   1 [32m+[m
+ .../zip-cache/3xkYmlbPmHA_gFPtX6ShFA==             |   1 [32m+[m
+ .../zip-cache/4ETbeAQpB1+KSQKqpZJ+mg==             |   1 [32m+[m
+ .../zip-cache/4gXB_XgTXFNbTKbWwV4qCA==             |   1 [32m+[m
+ .../zip-cache/4lmszyPCLkD73ijBNGl6EA==             |   1 [32m+[m
+ .../zip-cache/4s0j0ygyeYTc_CpEH4MMJA==             |   1 [32m+[m
+ .../zip-cache/4xbVsz4EgHrX6jQaMohnaA==             |   1 [32m+[m
+ .../zip-cache/5Rmg_KU1GLMdGR8FS41BzQ==             |   1 [32m+[m
+ .../zip-cache/5lWFabKeQn+4U4iCVpwscg==             |   1 [32m+[m
+ .../zip-cache/5thYBIZraFVjBsHsekwAWQ==             |   1 [32m+[m
+ .../zip-cache/5znpKC3xkAEQRLpmTAGsMA==             |   1 [32m+[m
+ .../zip-cache/65xw50nmncqGRvxn_LU2Kg==             |   1 [32m+[m
+ .../zip-cache/6Rg6i07GFgTHPaS+Y9cKJg==             |   1 [32m+[m
+ .../zip-cache/720SLXF0VFKaeNqSCL6XJQ==             |   1 [32m+[m
+ .../zip-cache/78OJ++GQ+QrqkCxr5Q4K8w==             |   1 [32m+[m
+ .../zip-cache/7vmdeR07YFz+ro0qwkcKIQ==             |   1 [32m+[m
+ .../zip-cache/8Ou5laC5ZkBLYB8IWXHD7w==             |   1 [32m+[m
+ .../zip-cache/8WO74aE1mb2Yi1zKrrGiJg==             |   1 [32m+[m
+ .../zip-cache/9u+QyTvZYrS9JSPi0vqunQ==             |   1 [32m+[m
+ .../zip-cache/AnEesBQyvW3qMave967lmw==             |   1 [32m+[m
+ .../zip-cache/B83ayBs7uwNES5e55Sdtow==             |   1 [32m+[m
+ .../zip-cache/DRM49KUabuLSIMZYfRQYMg==             |   1 [32m+[m
+ .../zip-cache/EIaJbZk1Q7cggCK+iw88JA==             |   1 [32m+[m
+ .../zip-cache/FE8q_WErscdKKNxYaC6DzQ==             |   1 [32m+[m
+ .../zip-cache/FlwCwU+akRv2LkHsMc6Hqg==             |   1 [32m+[m
+ .../zip-cache/FoGoIqvnNlsa_zjgj60s3g==             |   1 [32m+[m
+ .../zip-cache/GPbMarqYomwQcXzKaPEABg==             |   1 [32m+[m
+ .../zip-cache/Hep4oXbgdWV+WJiFx7yblQ==             |   1 [32m+[m
+ .../zip-cache/HlrcAuLsTi4YO7RykXbS5A==             |   1 [32m+[m
+ .../zip-cache/I0oHhRFH+FGVjmzfKDO6_Q==             |   1 [32m+[m
+ .../zip-cache/J30AQrVyEOaxIN7ueBhZWg==             |   1 [32m+[m
+ .../zip-cache/JUgPRC9waH5emZilCuzr1g==             |   1 [32m+[m
+ .../zip-cache/Jjmxs0U_79glO8+sdnkXWQ==             |   1 [32m+[m
+ .../zip-cache/K1ad7exc7T6axx+yYbgOew==             |   1 [32m+[m
+ .../zip-cache/K5E3RFyCYUfQIZx3r_GHPA==             |   1 [32m+[m
+ .../zip-cache/KKgX0u2825jUNuB8_rDInw==             |   1 [32m+[m
+ .../zip-cache/KNA1H_A4oyyUSEdiOpMzIQ==             |   1 [32m+[m
+ .../zip-cache/L13ZH2PBt0n2Hw0oB0+6LA==             |   1 [32m+[m
+ .../zip-cache/Ljz8GpwWtFL1Zr5EmD2rOw==             |   1 [32m+[m
+ .../zip-cache/MEQLXA9XqoSgbAhIOriyog==             |   1 [32m+[m
+ .../zip-cache/MvpCC0ACyeCSjsMj8eR9aw==             |   1 [32m+[m
+ .../zip-cache/MvqWcLzPnWWH11ObqDGrpg==             |   1 [32m+[m
+ .../zip-cache/MyS0ofgy1a52Hxl6G7_+yA==             |   1 [32m+[m
+ .../zip-cache/N5b7s5oyL4C5CCgk62CacQ==             |   1 [32m+[m
+ .../zip-cache/N8U8WV_fu4KbB_j1eh+scQ==             |   1 [32m+[m
+ .../zip-cache/NQ7L5l+VOIjjrSG3JSwNKQ==             |   1 [32m+[m
+ .../zip-cache/ONKEAF2456kuDx6SBNbOrg==             |   1 [32m+[m
+ .../zip-cache/OUUG80UsJPJTcGo3GI+wCQ==             |   1 [32m+[m
+ .../zip-cache/Ogk7ZtuhYe2P2EZeKIIeTw==             |   1 [32m+[m
+ .../zip-cache/Oj5RUd2Sqy_0VCjhizkcPw==             |   1 [32m+[m
+ .../zip-cache/PTzUtVfAI+AMkBNM0wIWyQ==             |   1 [32m+[m
+ .../zip-cache/PzjhtPNN0claDxdHiUnRTw==             |   1 [32m+[m
+ .../zip-cache/Q+uCOxe1ZFsGCGHMBpkOEQ==             |   1 [32m+[m
+ .../zip-cache/Q9ngczKaJVGmQ9hbnNAE2Q==             |   1 [32m+[m
+ .../zip-cache/QIBgPxbRXAfhznN07LPAhA==             |   1 [32m+[m
+ .../zip-cache/QYajaEeZspXNZhDTVICR5g==             |   1 [32m+[m
+ .../zip-cache/QcbPd38MCGeXNWcGedgziA==             |   1 [32m+[m
+ .../zip-cache/RqDbwNs9Vd0YTP3Jyuw1pA==             |   1 [32m+[m
+ .../zip-cache/S38zaomlTCfRba9PEkrHBw==             |   1 [32m+[m
+ .../zip-cache/S_bdwPjnw5GeDghrzQzD6A==             |   1 [32m+[m
+ .../zip-cache/SbYAavV8899iaq0odYP7TQ==             |   1 [32m+[m
+ .../zip-cache/SzAj9k48B2aAWNxsDscVNw==             |   1 [32m+[m
+ .../zip-cache/TvlE6tUcIqLeDzGXlD1Vcw==             |   1 [32m+[m
+ .../zip-cache/U14JYKmutR+kB6FX+wXcSw==             |   1 [32m+[m
+ .../zip-cache/UJJGCBXac4rh2ARF2p6AgA==             |   1 [32m+[m
+ .../zip-cache/Ub58S_9MiCqAZmXrg0fcrw==             |   1 [32m+[m
+ .../zip-cache/UcrbfH+jNYbKSpJqzsxAcQ==             |   1 [32m+[m
+ .../zip-cache/V3Ie5bbPwYU3GopM_IG4Nw==             |   1 [32m+[m
+ .../zip-cache/VBu78esMUFCEyn0kNcxawg==             |   1 [32m+[m
+ .../zip-cache/Vz9Kiy_Q0Bd5V5RWNWNqtQ==             |   1 [32m+[m
+ .../zip-cache/WAKTpOd3GkJCd89gkHHu5A==             |   1 [32m+[m
+ .../zip-cache/XV7onJPdBsF5QhTHx5v3rg==             |   1 [32m+[m
+ .../zip-cache/Xl769Nm8O7AS1_LjQDBHBA==             |   1 [32m+[m
+ .../zip-cache/Y0IiJPCtSdGENbVNPaVVQA==             |   1 [32m+[m
+ .../zip-cache/Y2M280USDLxKdCMO46YaAA==             |   1 [32m+[m
+ .../zip-cache/ZZvi1d1qgmWfpW_M4M0GJw==             |   1 [32m+[m
+ .../zip-cache/Zmp_Kj1DPvLOMzPfYyD3Ig==             |   1 [32m+[m
+ .../zip-cache/_7CdrobNVPvOzn2My8GtQQ==             |   1 [32m+[m
+ .../zip-cache/_iGuBtGu3upwSsGnwx8z+A==             |   1 [32m+[m
+ .../zip-cache/aksnALafp5gs5OrPl7CP9g==             |   1 [32m+[m
+ .../zip-cache/aky5MT9Ll_1low99yoL2kA==             |   1 [32m+[m
+ .../zip-cache/cMzgw3X1OELFbJR4+ReoHA==             |   1 [32m+[m
+ .../zip-cache/chZBLTnBvsRcCxLcdqPFRQ==             |   1 [32m+[m
+ .../zip-cache/cn7RCIvlFyBmolKeWaB24g==             |   1 [32m+[m
+ .../zip-cache/dCp7yCDalCAm1cHNPgKfRg==             |   1 [32m+[m
+ .../zip-cache/dYhWFAlOJPCOyiGdknBayg==             |   1 [32m+[m
+ .../zip-cache/fK9gJUfsY32tj0NPvqTGsQ==             |   1 [32m+[m
+ .../zip-cache/fOWNstfluYrubQ7gD2PXWQ==             |   1 [32m+[m
+ .../zip-cache/fQpZt4bvpMEC+d_8sNwOyQ==             |   1 [32m+[m
+ .../zip-cache/ftExl0qqgQZaWfFItGZaqg==             |   1 [32m+[m
+ .../zip-cache/fucg4Dbubc25f69KSzXthg==             |   1 [32m+[m
+ .../zip-cache/hDFaZ6VqdD7VDJZf5GIryA==             |   1 [32m+[m
+ .../zip-cache/hDmmjayPTd7BcS7NdQzaNQ==             |   1 [32m+[m
+ .../zip-cache/hGgBqw_HBbo9AAICtQPg6w==             |   1 [32m+[m
+ .../zip-cache/iptmpgIfhqaFlERghqHsEg==             |   1 [32m+[m
+ .../zip-cache/kk8AmrP4QbeOk5U3ILYijQ==             |   1 [32m+[m
+ .../zip-cache/lqC44oKVKTZVIHF6j3tMoQ==             |   1 [32m+[m
+ .../zip-cache/mK_IcsPRNFEobQGIi9XoVA==             |   1 [32m+[m
+ .../zip-cache/meb3WwyjwOmR7VIs88Ax0A==             |   1 [32m+[m
+ .../zip-cache/nCwBYE6Bu8hE45C9ixSf2g==             |   1 [32m+[m
+ .../zip-cache/niY+6C0UVLdnFG4oMrtaaA==             |   1 [32m+[m
+ .../zip-cache/oS2b5aSpDqFH+uJjRqen6A==             |   1 [32m+[m
+ .../zip-cache/q13r9L5So62dyhs1VjTCdA==             |   1 [32m+[m
+ .../zip-cache/qTSMk6KVqOQLF36o+NhPQA==             |   1 [32m+[m
+ .../zip-cache/qdxWSkYP+5mn510IZwNy3g==             |   1 [32m+[m
+ .../zip-cache/qgslbxnODM44ehY67RCIRg==             |   1 [32m+[m
+ .../zip-cache/s577_DuCoqn7uIkeh4HZKw==             |   1 [32m+[m
+ .../zip-cache/slepcQSmKmEmQF715o8Q2A==             |   1 [32m+[m
+ .../zip-cache/tHIj0JyM1s5zd1fBHbfuWw==             |   1 [32m+[m
+ .../zip-cache/tVOd_xj0yiV1ph_gDB7Whw==             |   1 [32m+[m
+ .../zip-cache/tu6rL+ke46s6rRyMtVO+HA==             |   1 [32m+[m
+ .../zip-cache/u4XVI40VXaHYWYT8ds4QjA==             |   1 [32m+[m
+ .../zip-cache/uD2R3LCXbun04Puh94IKFw==             |   1 [32m+[m
+ .../zip-cache/uOP4Y+TWK+1jDcBUtfmGHA==             |   1 [32m+[m
+ .../zip-cache/utLIZircyCoz8p9qf9vtDA==             |   1 [32m+[m
+ .../zip-cache/v7FnhbEzyq5u8CDjYmRapQ==             |   1 [32m+[m
+ .../zip-cache/xFNTe2VTUCB8DC7k9JbjQA==             |   1 [32m+[m
+ .../zip-cache/y7b8YCNRVamrnA8iKO8dpA==             |   1 [32m+[m
+ .../zip-cache/yGgPgUyPP8Gf+dncXYEUng==             |   1 [32m+[m
+ .../zip-cache/ygxBxWgvwMHh_XOu03NK0g==             |   1 [32m+[m
+ .../drawable_ic_banner_image.png.flat              | Bin [31m0[m -> [32m890184[m bytes
+ .../mergeDebugResources/drawable_ic_mic.png.flat   | Bin [31m0[m -> [32m2033240[m bytes
+ .../drawable/ic_banner_image.png                   | Bin [31m0[m -> [32m890055[m bytes
+ .../packageDebugResources/drawable/ic_mic.png      | Bin [31m0[m -> [32m2033129[m bytes
+ ...467176408889377400b6e06c4dac1a558776bf21c_0.jar | Bin [31m0[m -> [32m6800[m bytes
+ ...467176408889377400b6e06c4dac1a558776bf21c_1.jar | Bin [31m0[m -> [32m7106[m bytes
+ ...467176408889377400b6e06c4dac1a558776bf21c_2.jar | Bin [31m0[m -> [32m5097[m bytes
+ ...467176408889377400b6e06c4dac1a558776bf21c_3.jar | Bin [31m0[m -> [32m29180[m bytes
+ ...467176408889377400b6e06c4dac1a558776bf21c_4.jar | Bin [31m0[m -> [32m23087[m bytes
+ ...467176408889377400b6e06c4dac1a558776bf21c_5.jar | Bin [31m0[m -> [32m90458[m bytes
+ .../ComposableSingletons$HomeActivityKt.dex        | Bin [31m0[m -> [32m33160[m bytes
+ .../out/com/ezio/unishare/HomeActivity.dex         | Bin [31m0[m -> [32m1788[m bytes
+ .../HomeActivityKt$RentalItemGrid$1$1$1$1.dex      | Bin [31m0[m -> [32m10184[m bytes
+ ...ambda$23$lambda$22$$inlined$items$default$1.dex | Bin [31m0[m -> [32m2276[m bytes
+ ...ambda$23$lambda$22$$inlined$items$default$2.dex | Bin [31m0[m -> [32m2356[m bytes
+ ...ambda$23$lambda$22$$inlined$items$default$3.dex | Bin [31m0[m -> [32m2800[m bytes
+ ...ambda$23$lambda$22$$inlined$items$default$4.dex | Bin [31m0[m -> [32m2368[m bytes
+ ...ambda$23$lambda$22$$inlined$items$default$5.dex | Bin [31m0[m -> [32m5008[m bytes
+ .../out/com/ezio/unishare/HomeActivityKt.dex       | Bin [31m0[m -> [32m35600[m bytes
+ .../out/com/ezio/unishare/ui/theme/ColorKt.dex     | Bin [31m0[m -> [32m4852[m bytes
+ .../out/com/ezio/unishare/ui/theme/ThemeKt.dex     | Bin [31m0[m -> [32m11180[m bytes
+ .../out/com/ezio/unishare/ui/theme/TypeKt.dex      | Bin [31m0[m -> [32m5200[m bytes
+ .../caches-jvm/jvm/kotlin/package-parts.tab        | Bin [31m0[m -> [32m4096[m bytes
+ .../jvm/kotlin/package-parts.tab.keystream         | Bin [31m0[m -> [32m4096[m bytes
+ .../jvm/kotlin/package-parts.tab.keystream.len     | Bin [31m0[m -> [32m8[m bytes
+ .../caches-jvm/jvm/kotlin/package-parts.tab.len    | Bin [31m0[m -> [32m8[m bytes
+ .../jvm/kotlin/package-parts.tab.values.at         | Bin [31m0[m -> [32m82[m bytes
+ .../caches-jvm/jvm/kotlin/package-parts.tab_i      | Bin [31m0[m -> [32m32768[m bytes
+ .../caches-jvm/jvm/kotlin/package-parts.tab_i.len  | Bin [31m0[m -> [32m8[m bytes
+ app/build/outputs/apk/debug/app-debug.apk          | Bin [31m0[m -> [32m23785100[m bytes
+ app/build/outputs/apk/debug/output-metadata.json   |  21 [32m++[m
+ .../ComposableSingletons$HomeActivityKt.class      | Bin [31m0[m -> [32m27662[m bytes
+ .../debug/com/ezio/unishare/HomeActivity.class     | Bin [31m0[m -> [32m1518[m bytes
+ .../HomeActivityKt$RentalItemGrid$1$1$1$1.class    | Bin [31m0[m -> [32m11856[m bytes
+ ...bda$23$lambda$22$$inlined$items$default$1.class | Bin [31m0[m -> [32m2130[m bytes
+ ...bda$23$lambda$22$$inlined$items$default$2.class | Bin [31m0[m -> [32m2343[m bytes
+ ...bda$23$lambda$22$$inlined$items$default$3.class | Bin [31m0[m -> [32m2998[m bytes
+ ...bda$23$lambda$22$$inlined$items$default$4.class | Bin [31m0[m -> [32m2354[m bytes
+ ...bda$23$lambda$22$$inlined$items$default$5.class | Bin [31m0[m -> [32m5191[m bytes
+ .../debug/com/ezio/unishare/HomeActivityKt.class   | Bin [31m0[m -> [32m36842[m bytes
+ .../debug/com/ezio/unishare/ui/theme/ColorKt.class | Bin [31m0[m -> [32m4505[m bytes
+ .../debug/com/ezio/unishare/ui/theme/ThemeKt.class | Bin [31m0[m -> [32m11414[m bytes
+ .../debug/com/ezio/unishare/ui/theme/TypeKt.class  | Bin [31m0[m -> [32m4745[m bytes
+ .../main/java/com/ezio/unishare/HomeActivity.kt    | 224 [32m+++++++++++++++++++++[m
+ .../main/java/com/ezio/unishare/ui/theme/Color.kt  |  48 [32m+++++[m
+ .../main/java/com/ezio/unishare/ui/theme/Theme.kt  | 104 [32m++++++++++[m
+ .../main/java/com/ezio/unishare/ui/theme/Type.kt   | 124 [32m++++++++++++[m
+ java_pid3756.hprof                                 | Bin [31m0[m -> [32m782784672[m bytes
+ 177 files changed, 707 insertions(+)
