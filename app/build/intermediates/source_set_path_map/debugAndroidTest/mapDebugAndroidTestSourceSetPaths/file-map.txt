@@ -1,4 +1,0 @@
-com.ezio.unishare.test.app-androidTest-0 C:\Users\abhin\Music\UniShare\app\build\generated\res\resValues\androidTest\debug
-com.ezio.unishare.test.app-mergeDebugAndroidTestResources-1 C:\Users\abhin\Music\UniShare\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
-com.ezio.unishare.test.app-mergeDebugAndroidTestResources-2 C:\Users\abhin\Music\UniShare\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
-com.ezio.unishare.test.app-debugAndroidTest-3 C:\Users\abhin\Music\UniShare\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

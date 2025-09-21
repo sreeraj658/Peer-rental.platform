@@ -2,47 +2,53 @@ package com.ezio.unishare.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// From your colors.xml
-val DeepSkyBlue = Color(0xFF00BFFF)
-val DodgerBlue = Color(0xFF1E90FF)
-val White = Color(0xFFFFFFFF)
-val ErrorRed = Color(0xFFFF0000)
-val Black = Color(0xFF000000)
-
-// You might want to define specific Light and Dark theme colors here.
-// For simplicity, we'll start with defining the main ones used.
-// Example for Light Theme (can be expanded for Dark Theme)
-val PrimaryLight = DeepSkyBlue
-val OnPrimaryLight = White
-val PrimaryContainerLight = DodgerBlue // Or another lighter/variant shade
-val OnPrimaryContainerLight = White
-
-val SecondaryLight = DeepSkyBlue
-val OnSecondaryLight = White
-val SecondaryContainerLight = DodgerBlue // Or another lighter/variant shade
-val OnSecondaryContainerLight = White
-
-val TertiaryLight = DeepSkyBlue // Placeholder, can be a different accent
-val OnTertiaryLight = White
-val TertiaryContainerLight = DodgerBlue // Placeholder
-val OnTertiaryContainerLight = White
-
-val ErrorLight = ErrorRed
-val OnErrorLight = White
-val ErrorContainerLight = Color(0xFFFFDAD6) // A lighter shade for error container
-val OnErrorContainerLight = Color(0xFF410002) // Dark text on light error container
-
-val BackgroundLight = Color(0xFFFDFDFD) // A common light background
-val OnBackgroundLight = Color(0xFF1A1C1E) // Dark text on light background
-
-val SurfaceLight = Color(0xFFFDFDFD) // Can be same as background or slightly different
+// Light Theme Colors
+val PrimaryLight = Color(0xFF0061A4)
+val OnPrimaryLight = Color.White
+val PrimaryContainerLight = Color(0xFFD1E4FF)
+val OnPrimaryContainerLight = Color(0xFF001D36)
+val SecondaryLight = Color(0xFF535F70)
+val OnSecondaryLight = Color.White
+val SecondaryContainerLight = Color(0xFFDDE2F9) // Corrected this line
+val OnSecondaryContainerLight = Color(0xFF101C2B)
+val TertiaryLight = Color(0xFF6B5778)
+val OnTertiaryLight = Color.White
+val TertiaryContainerLight = Color(0xFFF2DAFF)
+val OnTertiaryContainerLight = Color(0xFF251431)
+val ErrorLight = Color(0xFFBA1A1A)
+val OnErrorLight = Color.White
+val ErrorContainerLight = Color(0xFFFFDAD6)
+val OnErrorContainerLight = Color(0xFF410002)
+val BackgroundLight = Color(0xFFFDFCFF)
+val OnBackgroundLight = Color(0xFF1A1C1E)
+val SurfaceLight = Color(0xFFFDFCFF)
 val OnSurfaceLight = Color(0xFF1A1C1E)
-val SurfaceVariantLight = Color(0xFFE7E0EC) // For card backgrounds, etc.
-val OnSurfaceVariantLight = Color(0xFF49454F)
+val SurfaceVariantLight = Color(0xFFDFE2EB)
+val OnSurfaceVariantLight = Color(0xFF42474E)
+val OutlineLight = Color(0xFF73777F)
 
-val OutlineLight = Color(0xFF79747E) // For borders, dividers
+// Dark Theme Colors
+val PrimaryDark = Color(0xFF9FCAFF)
+val OnPrimaryDark = Color(0xFF003259)
+val PrimaryContainerDark = Color(0xFF00497D)
+val OnPrimaryContainerDark = Color(0xFFD1E4FF)
+val SecondaryDark = Color(0xFFBBC7DB)
+val OnSecondaryDark = Color(0xFF253141)
+val SecondaryContainerDark = Color(0xFF3B4858)
+val OnSecondaryContainerDark = Color(0xFFD7E3F8)
+val TertiaryDark = Color(0xFFD6BEE4)
+val OnTertiaryDark = Color(0xFF3B2948)
+val TertiaryContainerDark = Color(0xFF523F5F)
+val OnTertiaryContainerDark = Color(0xFFF2DAFF)
+val ErrorDark = Color(0xFFFFB4AB)
+val OnErrorDark = Color(0xFF690005)
+val ErrorContainerDark = Color(0xFF93000A)
+val OnErrorContainerDark = Color(0xFFFFDAD6)
+val BackgroundDark = Color(0xFF1A1C1E)
+val OnBackgroundDark = Color(0xFFE2E2E6)
+val SurfaceDark = Color(0xFF1A1C1E)
+val OnSurfaceDark = Color(0xFFE2E2E6)
+val SurfaceVariantDark = Color(0xFF42474E)
+val OnSurfaceVariantDark = Color(0xFFC3C7CF)
+val OutlineDark = Color(0xFF8D9199)
 
-// TODO: Define corresponding colors for Dark Theme
-// val PrimaryDark = ...
-// val OnPrimaryDark = ...
-// ... and so on for all roles.
