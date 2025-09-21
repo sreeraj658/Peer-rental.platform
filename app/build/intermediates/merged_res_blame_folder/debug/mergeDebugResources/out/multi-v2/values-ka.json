@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-58:/values-ka/values-ka.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-64:/values-ka/values-ka.xml",
             "map": [
                 {
                     "source": "C:\\Users\\abhin\\.gradle\\caches\\9.0-milestone-1\\transforms\\94f5255dc709e973391fa9b74aee5e15\\transformed\\core-1.13.0\\res\\values-ka\\values-ka.xml",

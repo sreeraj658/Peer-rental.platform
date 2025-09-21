@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-58:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-64:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "C:\\Users\\abhin\\.gradle\\caches\\9.0-milestone-1\\transforms\\2cabff17201ede3bfb7d10f39254ef83\\transformed\\material-1.12.0\\res\\values-night-v8\\values-night-v8.xml",

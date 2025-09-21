@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-58:/values-hi/values-hi.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-64:/values-hi/values-hi.xml",
             "map": [
                 {
                     "source": "C:\\Users\\abhin\\.gradle\\caches\\9.0-milestone-1\\transforms\\6610898cb49115edc498a34c28bbc51f\\transformed\\jetified-material3-1.1.2\\res\\values-hi\\values-hi.xml",
