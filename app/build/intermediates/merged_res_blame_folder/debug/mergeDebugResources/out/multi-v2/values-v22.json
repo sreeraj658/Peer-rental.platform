@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-30:/values-v22/values-v22.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-34:/values-v22/values-v22.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\567d12a6912bf2c5703df0ff0052f30c\\transformed\\appcompat-1.7.0\\res\\values-v22\\values-v22.xml",
+                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\a7e8fc3249bb3b2174315e305abc64fb\\transformed\\appcompat-1.7.0\\res\\values-v22\\values-v22.xml",
                     "from": {
                         "startLines": "2,3,4,9",
                         "startColumns": "4,4,4,4",
