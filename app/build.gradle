@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id("com.google.gms.google-services") // 👈 Apply Google services plugin
 }
 
 android {
@@ -25,8 +26,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    // ADD THIS ENTIRE BLOCK
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += 'META-INF/NOTICE.md'
+            excludes += 'META-INF/LICENSE.md'
+        }
     }
 }
 
@@ -36,4 +46,16 @@ dependencies {
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
     implementation 'androidx.activity:activity:1.10.1'
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    //email system
+    implementation files('libs/android-mail-1.6.8.jar')
+    implementation files('libs/android-activation-1.6.8.jar')
+    implementation platform('com.google.firebase:firebase-bom:33.1.2')
+
+    // Choose the Firebase products you need
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.google.firebase:firebase-firestore'
 }
+

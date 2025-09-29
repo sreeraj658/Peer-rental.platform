@@ -1,108 +1,128 @@
 package com.ezio.unishare
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.animation.Animation // Keep this if shakeAnimation is used, or AnimationUtils for others
+import android.util.Patterns
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView // Import TextView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.database.FirebaseDatabase
+import android.util.Log
 
+/**
+ * MainActivity
+ * ------------
+ * Handles login using Realtime Database.
+ * Checks email and password stored under "users" node.
+ * Shows proper messages for invalid email/password.
+ */
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Find views from the layout
-        val nameEditText = findViewById<EditText>(R.id.editTextName) // This is for College Mail ID
-        val emailEditText = findViewById<EditText>(R.id.editTextEmail) // This is for Password
-
-        // Find TextInputLayouts
-        val nameTextInputLayout = findViewById<TextInputLayout>(R.id.textInputLayoutName)
-        val emailTextInputLayout = findViewById<TextInputLayout>(R.id.textInputLayoutEmail)
-
+        // ------------------ Find Views ------------------
+        val collegeMailEditText = findViewById<EditText>(R.id.editTextName)
+        val collegeMailLayout = findViewById<TextInputLayout>(R.id.textInputLayoutName)
+        val passwordEditText = findViewById<EditText>(R.id.editTextEmail)
+        val passwordLayout = findViewById<TextInputLayout>(R.id.textInputLayoutEmail)
         val joinButton = findViewById<Button>(R.id.buttonJoin)
         val createAccountButton = findViewById<Button>(R.id.buttonCreateAccount)
-        val forgotPasswordTextView = findViewById<TextView>(R.id.textViewForgotPassword) // Find the TextView
-
-        // Load animations
+        val forgotPasswordTextView = findViewById<TextView>(R.id.textViewForgotPassword)
         val shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake_anim)
 
-        // Helper function to add TextWatcher for clearing error
+        // ------------------ Helper: Clear error while typing ------------------
         fun addTextWatcherToClearError(editText: EditText, layout: TextInputLayout) {
             editText.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     if (s?.isNotEmpty() == true && layout.error != null) {
-                        layout.error = null // Clear error from TextInputLayout
+                        layout.error = null
                     }
                 }
                 override fun afterTextChanged(s: Editable?) {}
             })
         }
 
-        addTextWatcherToClearError(nameEditText, nameTextInputLayout)
-        addTextWatcherToClearError(emailEditText, emailTextInputLayout)
+        addTextWatcherToClearError(collegeMailEditText, collegeMailLayout)
+        addTextWatcherToClearError(passwordEditText, passwordLayout)
 
-        // Set a click listener for the JOIN button
+        // ------------------ LOGIN BUTTON ------------------
         joinButton.setOnClickListener {
-            // Load a new animation instance for this specific click
-            val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale_anim)
-            it.startAnimation(scaleAnimation)
-
-            val collegeMail = nameEditText.text.toString().trim()
-            val password = emailEditText.text.toString().trim()
-
+            val email = collegeMailEditText.text.toString().trim()
+            val password = passwordEditText.text.toString().trim()
             var isValid = true
 
-            if (collegeMail.isBlank()) {
-                nameTextInputLayout.error = "College mail ID is required"
-                nameTextInputLayout.startAnimation(shakeAnimation)
+            // ------------------ Input Validation ------------------
+            if (email.isBlank()) {
+                collegeMailLayout.error = "College mail ID is required"
+                collegeMailLayout.startAnimation(shakeAnimation)
+                isValid = false
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                collegeMailLayout.error = "Enter a valid email address"
+                collegeMailLayout.startAnimation(shakeAnimation)
                 isValid = false
             } else {
-                nameTextInputLayout.error = null
+                collegeMailLayout.error = null
             }
 
             if (password.isBlank()) {
-                emailTextInputLayout.error = "Password is required"
-                emailTextInputLayout.startAnimation(shakeAnimation)
+                passwordLayout.error = "Password is required"
+                passwordLayout.startAnimation(shakeAnimation)
                 isValid = false
             } else {
-                emailTextInputLayout.error = null
+                passwordLayout.error = null
             }
 
-            if (isValid) {
-                Toast.makeText(this, "Logging in...", Toast.LENGTH_SHORT).show()
-                // TODO: Add actual login logic here
+            if (!isValid) return@setOnClickListener
+
+            // ------------------ Check Realtime Database ------------------
+            val database = FirebaseDatabase.getInstance()
+            val usersRef = database.getReference("users")
+            val emailKey = email.replace(".", "_") // Replace "." to match key format
+
+            usersRef.child(emailKey).get().addOnSuccessListener { snapshot ->
+                if (snapshot.exists()) {
+                    val storedPassword = snapshot.child("password").getValue(String::class.java)
+                    if (storedPassword == password) {
+                        Toast.makeText(this, "Login successful ✅", Toast.LENGTH_SHORT).show()
+                        Log.d("Login", "User $email logged in successfully")
+                        // TODO: Navigate to HomeActivity or Main content
+                        // Example:
+                        // startActivity(Intent(this, HomeActivity::class.java))
+                    } else {
+                        passwordLayout.error = "Invalid password!"
+                        passwordLayout.startAnimation(shakeAnimation)
+                        Toast.makeText(this, "Invalid password!", Toast.LENGTH_LONG).show()
+                    }
+                } else {
+                    collegeMailLayout.error = "Invalid email!"
+                    collegeMailLayout.startAnimation(shakeAnimation)
+                    Toast.makeText(this, "Invalid email!", Toast.LENGTH_LONG).show()
+                }
+            }.addOnFailureListener { e ->
+                Toast.makeText(this, "Database error: ${e.message}", Toast.LENGTH_LONG).show()
+                Log.e("Login", "Error reading DB", e)
             }
         }
 
-        // Set a click listener for the CREATE ACCOUNT button
+        // ------------------ CREATE ACCOUNT ------------------
         createAccountButton.setOnClickListener {
-            val scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale_anim)
-            it.startAnimation(scaleAnimation)
-            val intent = Intent(this, CreateAccountActivity::class.java)
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left) // Your existing animation
+            startActivity(Intent(this, CreateAccountActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
-        // Set a click listener for the FORGOT PASSWORD TextView
+        // ------------------ FORGOT PASSWORD ------------------
         forgotPasswordTextView.setOnClickListener {
-            // Optional: Add a small animation for visual feedback if desired
-            // val clickFeedbackAnimation = AnimationUtils.loadAnimation(this, R.anim.button_scale_anim) // or any other subtle anim
-            // it.startAnimation(clickFeedbackAnimation)
-
-            val intent = Intent(this, ForgetActivity::class.java)
-            startActivity(intent)
-            // Optional: Add a transition animation for opening ForgetActivity
-            // overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out) // Example: fade
-            // or your custom slide animations if you have them for this transition
-            // overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
+            startActivity(Intent(this, ForgetActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 }

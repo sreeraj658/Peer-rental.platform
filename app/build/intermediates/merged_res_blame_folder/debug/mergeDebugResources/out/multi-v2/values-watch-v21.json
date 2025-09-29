@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-30:/values-watch-v21/values-watch-v21.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-38:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\59b4ef4820508365af4b601bfb27b0eb\\transformed\\appcompat-1.7.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\48867f641f616af570f10480a1705f3b\\transformed\\appcompat-1.7.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

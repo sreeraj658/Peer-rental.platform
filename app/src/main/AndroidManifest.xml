@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Internet permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -8,37 +11,63 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PeerRentApp.ForceLight">
-        <activity android:name=".SetNewPasswordActivity" />
+
+
         <activity
-            android:name=".SplashActivity"
+            android:name=".MigrationActivity"
             android:exported="true"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Splash -->
+            android:theme="@style/Theme.PeerRentApp.ForceLight">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- SplashActivity (original launcher, revert after migration) -->
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PeerRentApp.ForceLight">
+            <!-- Remove intent-filter temporarily during migration -->
+        </activity>
+
+        <!-- Main Login Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Login -->
+            android:theme="@style/Theme.PeerRentApp.ForceLight">
         </activity>
+
+        <!-- Create Account Activity -->
         <activity
             android:name=".CreateAccountActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Create Account -->
+            android:theme="@style/Theme.PeerRentApp.ForceLight">
         </activity>
+
+        <!-- Forget Password / OTP Activity -->
         <activity
             android:name=".ForgetActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Forget Password/OTP -->
+            android:theme="@style/Theme.PeerRentApp.ForceLight">
         </activity>
+
+        <!-- OTP Verification Activity -->
         <activity
             android:name=".OtpVerificationActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for OTP Verification -->
+            android:theme="@style/Theme.PeerRentApp.ForceLight">
         </activity>
-        <!-- Add other post-login activities here; they will inherit Theme.PeerRentApp.DayNight -->
+
+        <!-- Set New Password Activity -->
+        <activity
+            android:name=".SetNewPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Theme.PeerRentApp.ForceLight">
+        </activity>
+
+        <!-- Add other post-login activities here as needed -->
+
     </application>
 
 </manifest>
