@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-34:/values-small-v4/values-small-v4.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-30:/values-small-v4/values-small-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\9ba1dfe01553ce33ce56ee78f4932445\\transformed\\material-1.12.0\\res\\values-small-v4\\values-small-v4.xml",
+                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\02ca77d47e034b6981278748199bd969\\transformed\\material-1.12.0\\res\\values-small-v4\\values-small-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
