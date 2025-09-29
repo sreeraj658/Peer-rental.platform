@@ -3227,6 +3227,7 @@ id buttonCreateAccount
 id buttonCreateAccountSubmit
 id buttonJoin
 id buttonPanel
+id buttonSendOtp
 id buttonSetNewPassword
 id buttonVerifyOtp
 id cache_measures
@@ -3594,6 +3595,7 @@ id textInputLayoutFirstName
 id textInputLayoutLastName
 id textInputLayoutName
 id textInputLayoutNewPassword
+id textInputLayoutOtp
 id textInputLayoutPassword
 id textInputLayoutPhone
 id textSpacerNoButtons
@@ -3603,11 +3605,13 @@ id textTop
 id textViewCreateAccountTitle
 id textViewForgetInstruction
 id textViewForgotPassword
+id textViewInstruction
 id textViewOtpTimer
 id textViewPasswordCriteriaErrors
 id textViewPasswordCriteriaErrorsCreate
 id textViewResendOtp
 id textViewSetPasswordTitle
+id textViewTitle
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
