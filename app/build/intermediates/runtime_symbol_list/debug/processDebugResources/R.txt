@@ -3226,6 +3226,7 @@ int id buttonCreateAccount 0x7f080065
 int id buttonCreateAccountSubmit 0x7f080066
 int id buttonJoin 0x7f080067
 int id buttonPanel 0x7f080068
+int id buttonSendOtp 0x7f08021c
 int id buttonSetNewPassword 0x7f080069
 int id buttonVerifyOtp 0x7f08006a
 int id cache_measures 0x7f08006b
@@ -3593,6 +3594,7 @@ int id textInputLayoutFirstName 0x7f0801d4
 int id textInputLayoutLastName 0x7f0801d5
 int id textInputLayoutName 0x7f0801d6
 int id textInputLayoutNewPassword 0x7f0801d7
+int id textInputLayoutOtp 0x7f08021d
 int id textInputLayoutPassword 0x7f0801d8
 int id textInputLayoutPhone 0x7f0801d9
 int id textSpacerNoButtons 0x7f0801da
@@ -3602,11 +3604,13 @@ int id textTop 0x7f0801dd
 int id textViewCreateAccountTitle 0x7f0801de
 int id textViewForgetInstruction 0x7f0801df
 int id textViewForgotPassword 0x7f0801e0
+int id textViewInstruction 0x7f08021e
 int id textViewOtpTimer 0x7f0801e1
 int id textViewPasswordCriteriaErrors 0x7f0801e2
 int id textViewPasswordCriteriaErrorsCreate 0x7f0801e3
 int id textViewResendOtp 0x7f0801e4
 int id textViewSetPasswordTitle 0x7f0801e5
+int id textViewTitle 0x7f08021f
 int id text_input_end_icon 0x7f0801e6
 int id text_input_error_icon 0x7f0801e7
 int id text_input_start_icon 0x7f0801e8

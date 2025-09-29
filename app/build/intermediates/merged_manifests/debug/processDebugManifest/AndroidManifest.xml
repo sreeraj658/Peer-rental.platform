@@ -8,6 +8,9 @@
         android:minSdkVersion="26"
         android:targetSdkVersion="36" />
 
+    <!-- internet permission -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <permission
         android:name="com.ezio.unishare.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
