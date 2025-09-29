@@ -14,7 +14,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 /**
- * A reusable service to send emails using a dedicated Gmail account.
+ * A reusable service to send emails using a dedicated Gmail account to users.
  * This version uses the correct imports for the Android mail libraries.
  */
 public class EmailService {
