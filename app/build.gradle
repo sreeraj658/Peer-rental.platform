@@ -1,27 +1,28 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id("com.google.gms.google-services") // 👈 Apply Google services plugin
+    id 'com.google.gms.google-services' // Apply Google services plugin
 }
 
 android {
     namespace = "com.ezio.unishare"
-    compileSdk = 36 // Updated
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.ezio.unishare"
         minSdk = 26
-        targetSdk = 36 // Updated
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
     }
 
     buildTypes {
         release {
-            minifyEnabled = false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -30,32 +31,36 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    // ADD THIS ENTIRE BLOCK
-    packaging {
+
+    // Updated packagingOptions (replace deprecated 'excludes')
+    packagingOptions {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-            excludes += 'META-INF/NOTICE.md'
-            excludes += 'META-INF/LICENSE.md'
+            excludes.add("/META-INF/AL2.0")
+            excludes.add("/META-INF/LGPL2.1")
+            excludes.add("META-INF/NOTICE.md")
+            excludes.add("META-INF/LICENSE.md")
         }
     }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.2.10"
-    implementation 'androidx.appcompat:appcompat:1.7.0'
-    implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
-    implementation 'androidx.activity:activity:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.7.1' // updated
+    implementation 'com.google.android.material:material:1.13.0' // updated
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1' // updated
+    implementation 'androidx.activity:activity:1.11.0' // updated
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
-    //email system
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2" // updated
+
+    // Email system
     implementation files('libs/android-mail-1.6.8.jar')
     implementation files('libs/android-activation-1.6.8.jar')
-    implementation platform('com.google.firebase:firebase-bom:33.1.2')
 
-    // Choose the Firebase products you need
+    // Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:34.3.0')
+
+    // Firebase products
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-database'
     implementation 'com.google.firebase:firebase-firestore'
 }
-

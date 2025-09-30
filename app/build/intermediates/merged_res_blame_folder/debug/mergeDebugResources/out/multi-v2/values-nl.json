@@ -4,6 +4,7 @@
             "outputFile": "com.ezio.unishare.app-mergeDebugResources-38:/values-nl/values-nl.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\acb2837dc9e768466473333c083f2e4e\\transformed\\jetified-play-services-base-18.1.0\\res\\values-nl\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -56,6 +57,9 @@
                 },
                 {
                     "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\06a6d973a78439639a3a8a05549fa7a2\\transformed\\material-1.12.0\\res\\values-nl\\values-nl.xml",
+=======
+                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\af7bb58dfc71f1abc691ff322e0ddd0b\\transformed\\material-1.12.0\\res\\values-nl\\values-nl.xml",
+>>>>>>> e6080c39d99e1e9d55653b2748238a57c7db0ead
                     "from": {
                         "startLines": "2,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -74,7 +78,11 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\26c46bf939f0bcc9db082ede263a1134\\transformed\\jetified-play-services-basement-18.3.0\\res\\values-nl\\values.xml",
+=======
+                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\5a0cdd4526b7857c51a48ca8fab852d6\\transformed\\core-1.13.0\\res\\values-nl\\values-nl.xml",
+>>>>>>> e6080c39d99e1e9d55653b2748238a57c7db0ead
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -91,6 +99,7 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\8e5da9f293637ab9b15fc1fd80f79a55\\transformed\\jetified-credentials-1.2.0-rc01\\res\\values-nl\\values-nl.xml",
                     "from": {
                         "startLines": "2,3",
@@ -109,6 +118,9 @@
                 },
                 {
                     "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\48867f641f616af570f10480a1705f3b\\transformed\\appcompat-1.7.0\\res\\values-nl\\values-nl.xml",
+=======
+                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\567d12a6912bf2c5703df0ff0052f30c\\transformed\\appcompat-1.7.0\\res\\values-nl\\values-nl.xml",
+>>>>>>> e6080c39d99e1e9d55653b2748238a57c7db0ead
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

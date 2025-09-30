@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PeerRentApp.ForceLight">
 
-
         <activity
             android:name=".MigrationActivity"
             android:exported="true"
@@ -27,44 +26,37 @@
         <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.PeerRentApp.ForceLight">
-            <!-- Remove intent-filter temporarily during migration -->
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
 
         <!-- Main Login Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight">
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
 
         <!-- Create Account Activity -->
         <activity
             android:name=".CreateAccountActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight">
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
 
         <!-- Forget Password / OTP Activity -->
         <activity
             android:name=".ForgetActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight">
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
 
         <!-- OTP Verification Activity -->
         <activity
             android:name=".OtpVerificationActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight">
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
 
         <!-- Set New Password Activity -->
         <activity
             android:name=".SetNewPasswordActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight">
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
 
         <!-- Add other post-login activities here as needed -->
 
