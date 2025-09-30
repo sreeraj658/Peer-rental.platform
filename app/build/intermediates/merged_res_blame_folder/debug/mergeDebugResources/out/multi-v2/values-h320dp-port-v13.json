@@ -1,14 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-38:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-65:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\06a6d973a78439639a3a8a05549fa7a2\\transformed\\material-1.12.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
-=======
-                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\af7bb58dfc71f1abc691ff322e0ddd0b\\transformed\\material-1.12.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
->>>>>>> e6080c39d99e1e9d55653b2748238a57c7db0ead
+                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\992af5e9d91067510230a3c79cbf24ee\\transformed\\material-1.11.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

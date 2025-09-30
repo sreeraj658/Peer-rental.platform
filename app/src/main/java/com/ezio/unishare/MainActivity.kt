@@ -12,7 +12,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
-import com.ezio.unishare.HomeActivity
 import com.google.firebase.database.FirebaseDatabase
 import android.util.Log
 
@@ -96,6 +95,9 @@ class MainActivity : AppCompatActivity() {
 
                         // Navigate to HomeActivity
                         val intent = Intent(this, HomeActivity::class.java)
+                        // --- THIS IS THE CRUCIAL LINE ---
+                        intent.putExtra("USER_EMAIL", email) // Pass the email to the next screen
+                        // ---------------------------------
                         startActivity(intent)
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                         finish() // Prevent back to login
@@ -128,3 +130,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+

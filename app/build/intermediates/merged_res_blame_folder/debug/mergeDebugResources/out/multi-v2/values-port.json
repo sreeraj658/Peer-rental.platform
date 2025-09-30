@@ -1,14 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-38:/values-port/values-port.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-65:/values-port/values-port.xml",
             "map": [
                 {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\48867f641f616af570f10480a1705f3b\\transformed\\appcompat-1.7.0\\res\\values-port\\values-port.xml",
-=======
-                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\567d12a6912bf2c5703df0ff0052f30c\\transformed\\appcompat-1.7.0\\res\\values-port\\values-port.xml",
->>>>>>> e6080c39d99e1e9d55653b2748238a57c7db0ead
+                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\0b53cfdd9796c5ef4f4d0616eb99d5e1\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

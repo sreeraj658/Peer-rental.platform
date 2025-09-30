@@ -6,17 +6,11 @@
 
     <uses-sdk
         android:minSdkVersion="26"
-        android:targetSdkVersion="36" />
+        android:targetSdkVersion="34" />
 
-<<<<<<< HEAD
-    <!-- Internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-=======
-    <!-- internet permission -->
-    <uses-permission android:name="android.permission.INTERNET" />
->>>>>>> e6080c39d99e1e9d55653b2748238a57c7db0ead
 
     <permission
         android:name="com.ezio.unishare.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -35,8 +29,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.PeerRentApp.ForceLight" >
+        <activity android:name="com.ezio.unishare.SetNewPasswordActivity" />
         <activity
-            android:name="com.ezio.unishare.MigrationActivity"
+            android:name="com.ezio.unishare.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.PeerRentApp.ForceLight" >
             <intent-filter>
@@ -45,53 +40,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- SplashActivity (original launcher, revert after migration) -->
-        <activity
-            android:name="com.ezio.unishare.SplashActivity"
-            android:exported="true"
-            android:theme="@style/Theme.PeerRentApp.ForceLight" >
-
-            <!-- Remove intent-filter temporarily during migration -->
-        </activity>
-
-        <!-- Main Login Activity -->
         <activity
             android:name="com.ezio.unishare.MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight" >
-        </activity>
-
-        <!-- Create Account Activity -->
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
         <activity
             android:name="com.ezio.unishare.CreateAccountActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight" >
-        </activity>
-
-        <!-- Forget Password / OTP Activity -->
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
         <activity
             android:name="com.ezio.unishare.ForgetActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight" >
-        </activity>
-
-        <!-- OTP Verification Activity -->
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
         <activity
             android:name="com.ezio.unishare.OtpVerificationActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight" >
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
 
-        <!-- Set New Password Activity -->
+        <!-- Add HomeActivity -->
         <activity
-            android:name="com.ezio.unishare.SetNewPasswordActivity"
-            android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight" >
-        </activity>
-
-        <!-- Add other post-login activities here as needed -->
-
+            android:name="com.ezio.unishare.HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
         <activity
             android:name="com.google.firebase.auth.internal.GenericIdpActivity"
             android:excludeFromRecents="true"
@@ -155,37 +125,11 @@
                 android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
-        <service
-            android:name="androidx.credentials.playservices.CredentialProviderMetadataHolder"
-            android:enabled="true"
-            android:exported="false" >
-            <meta-data
-                android:name="androidx.credentials.CREDENTIAL_PROVIDER_KEY"
-                android:value="androidx.credentials.playservices.CredentialProviderPlayServicesImpl" />
-        </service>
 
         <activity
-            android:name="androidx.credentials.playservices.HiddenActivity"
-            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden"
-            android:enabled="true"
-            android:exported="false"
-            android:fitsSystemWindows="true"
-            android:theme="@style/Theme.Hidden" >
-        </activity>
-        <activity
-            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-            android:excludeFromRecents="true"
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <!--
-            Service handling Google Sign-In user revocation. For apps that do not integrate with
-            Google Sign-In, this service will never be started.
-        -->
-        <service
-            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-            android:exported="true"
-            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-            android:visibleToInstantApps="true" />
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
@@ -193,12 +137,6 @@
             android:directBootAware="true"
             android:exported="false"
             android:initOrder="100" />
-
-        <activity
-            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.ezio.unishare.androidx-startup"

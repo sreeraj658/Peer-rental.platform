@@ -1,5 +1,6 @@
 package com.ezio.unishare
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -39,6 +40,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -50,16 +52,19 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import com.ezio.unishare.ui.theme.PeerRentTheme
-import kotlinx.coroutines.delay
 import kotlin.math.*
 
-// ------------------ MAIN ACTIVITY ------------------
 class HomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        // Get the email passed from MainActivity
+        val userEmail = intent.getStringExtra("USER_EMAIL") ?: "Welcome!"
+
         setContent {
             PeerRentTheme {
-                UniShareAppScreen()
+                // Pass the email to your main screen
+                UniShareAppScreen(userEmail = userEmail)
             }
         }
     }
@@ -67,7 +72,7 @@ class HomeActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun UniShareAppScreen() {
+fun UniShareAppScreen(userEmail: String) {
     val navController = rememberNavController()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior(rememberTopAppBarState())
 
@@ -77,17 +82,19 @@ fun UniShareAppScreen() {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = navBackStackEntry?.destination?.route
             if (currentRoute == Screen.Home.route || currentRoute == Screen.Rentals.route) {
-                CustomTopBar(scrollBehavior, currentRoute, navController)
+                // Pass the email down to the TopBar
+                CustomTopBar(scrollBehavior, currentRoute, navController, userEmail = userEmail)
             }
         },
         bottomBar = { SmoothGooeyBottomNav(navController = navController) }
     ) { paddingValues ->
-        AppNavHost(navController, Modifier.padding(paddingValues))
+        // Pass userEmail to the NavHost
+        AppNavHost(navController, Modifier.padding(paddingValues), userEmail = userEmail)
     }
 }
 
 @Composable
-fun AppNavHost(navController: NavHostController, modifier: Modifier = Modifier) {
+fun AppNavHost(navController: NavHostController, modifier: Modifier = Modifier, userEmail: String) {
     NavHost(
         navController = navController,
         startDestination = Screen.Home.route,
@@ -95,9 +102,82 @@ fun AppNavHost(navController: NavHostController, modifier: Modifier = Modifier) 
     ) {
         composable(Screen.Home.route) { HomeScreenContent() }
         composable(Screen.Rentals.route) { RentalScreen() }
-        composable(Screen.Profile.route) { ProfileScreen() }
+        // Pass the userEmail to the ProfileScreen
+        composable(Screen.Profile.route) { ProfileScreen(userEmail = userEmail) }
     }
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun CustomTopBar(scrollBehavior: TopAppBarScrollBehavior?, currentRoute: String?, navController: NavHostController, userEmail: String) {
+    val title = when (currentRoute) {
+        Screen.Home.route -> "Home"
+        Screen.Rentals.route -> "Rentals"
+        else -> ""
+    }
+    // Use the user's email instead of placeholder text
+    val subTitle = when (currentRoute) {
+        Screen.Home.route -> userEmail
+        else -> null
+    }
+    
+    // This gives us access to the Android system to start a new activity
+    val context = LocalContext.current
+
+    TopAppBar(
+        title = {
+            Column {
+                Text(title, fontSize = 20.sp, style = MaterialTheme.typography.titleLarge)
+                if (subTitle != null) {
+                    Text(subTitle, fontSize = 12.sp, color = Color.Gray, style = MaterialTheme.typography.bodySmall)
+                }
+            }
+        },
+        actions = {
+            if (currentRoute == Screen.Home.route) {
+                // --- THIS IS THE NEWLY ADDED CHAT BUTTON ---
+                IconButton(onClick = {
+                    // Create an Intent to open the ChatActivity
+                    val intent = Intent(context, ChatActivity::class.java).apply {
+                        // Pass the current user's email to the ChatActivity
+                        putExtra("CURRENT_USER_EMAIL", userEmail)
+                    }
+                    // Start the activity
+                    context.startActivity(intent)
+                }) {
+                    Icon(
+                        imageVector = Icons.Filled.Chat,
+                        contentDescription = "Messages",
+                    )
+                }
+                // --- END OF CHAT BUTTON CODE ---
+
+                Spacer(modifier = Modifier.width(8.dp))
+                
+                IconButton(onClick = { navController.navigate(Screen.Profile.route) }) {
+                    Icon(
+                        imageVector = Icons.Filled.Person,
+                        contentDescription = "Profile",
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier
+                            .size(32.dp)
+                            .clip(MaterialTheme.shapes.small)
+                            .background(MaterialTheme.colorScheme.surfaceVariant)
+                    )
+                }
+            }
+        },
+        scrollBehavior = scrollBehavior,
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.surface,
+            scrolledContainerColor = MaterialTheme.colorScheme.surface
+        )
+    )
+}
+
+
+// --- The rest of your HomeActivity.kt file remains unchanged. ---
+// --- I have omitted it here for brevity, but you should keep it in your file. ---
 
 @Composable
 fun HomeScreenContent() {
@@ -123,7 +203,8 @@ fun HomeScreenContent() {
     }
 }
 
-// ------------------ RENTAL SCREEN ------------------
+// NOTE: This composable is now defined in its own file, RentalScreen.kt
+// You can remove this from HomeActivity.kt if you want to clean it up.
 @Composable
 fun RentalScreen() {
     Column(
@@ -133,7 +214,6 @@ fun RentalScreen() {
     ) {
         Text("My Rentals", style = MaterialTheme.typography.titleLarge)
         Spacer(Modifier.height(16.dp))
-
         Text("Currently Rented Items", style = MaterialTheme.typography.titleMedium)
         LazyColumn(modifier = Modifier.weight(1f)) {
             items(3) { index ->
@@ -151,7 +231,6 @@ fun RentalScreen() {
                 }
             }
         }
-
         Spacer(Modifier.height(16.dp))
         Text("Recommended for You", style = MaterialTheme.typography.titleMedium)
         LazyRow(
@@ -175,7 +254,8 @@ fun RentalScreen() {
     }
 }
 
-// ------------------ PROFILE SCREEN ------------------
+// NOTE: This composable is now defined in its own file, ProfileScreen.kt
+// You can remove this from HomeActivity.kt if you want to clean it up.
 @Composable
 fun ProfileScreen() {
     Box(
@@ -184,51 +264,6 @@ fun ProfileScreen() {
     ) {
         Text("Profile Page (Coming Soon)", style = MaterialTheme.typography.headlineMedium)
     }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun CustomTopBar(scrollBehavior: TopAppBarScrollBehavior?, currentRoute: String?, navController: NavHostController) {
-    val title = when (currentRoute) {
-        Screen.Home.route -> "Home"
-        Screen.Rentals.route -> "Rentals"
-        else -> ""
-    }
-    val subTitle = when (currentRoute) {
-        Screen.Home.route -> "your House name, location..."
-        else -> null
-    }
-
-    TopAppBar(
-        title = {
-            Column {
-                Text(title, fontSize = 20.sp, style = MaterialTheme.typography.titleLarge)
-                if (subTitle != null) {
-                    Text(subTitle, fontSize = 12.sp, color = Color.Gray, style = MaterialTheme.typography.bodySmall)
-                }
-            }
-        },
-        actions = {
-            if (currentRoute == Screen.Home.route) {
-                IconButton(onClick = { navController.navigate(Screen.Profile.route) }) {
-                    Icon(
-                        imageVector = Icons.Filled.Person,
-                        contentDescription = "Profile",
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier
-                            .size(32.dp)
-                            .clip(MaterialTheme.shapes.small)
-                            .background(MaterialTheme.colorScheme.surfaceVariant)
-                    )
-                }
-            }
-        },
-        scrollBehavior = scrollBehavior,
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.surface,
-            scrolledContainerColor = MaterialTheme.colorScheme.surface
-        )
-    )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -327,14 +362,12 @@ fun RentalItemGrid() {
     }
 }
 
-// ----------------- NAVIGATION BAR DATA -----------------
 data class NavigationItem(
     val route: String,
     val label: String,
     val icon: ImageVector
 )
 
-// ----------------- SMOOTH PARTICLE EFFECT -----------------
 @Composable
 fun SmoothParticleEffect(isActive: Boolean) {
     val infiniteTransition = rememberInfiniteTransition(label = "particles")
@@ -372,7 +405,7 @@ fun SmoothParticleEffect(isActive: Boolean) {
                     )
                     .size(6.dp)
                     .background(
-                        Color(0xFF0000FF).copy(alpha = alpha),  // ← Changed from Color.White to Color(0xFF0000FF)
+                        Color(0xFF0000FF).copy(alpha = alpha),
                         CircleShape
                     )
             )
@@ -380,7 +413,6 @@ fun SmoothParticleEffect(isActive: Boolean) {
     }
 }
 
-// ----------------- SMOOTH GOOEY NAVIGATION -----------------
 @Composable
 fun SmoothGooeyBottomNav(navController: NavHostController) {
     val haptic = LocalHapticFeedback.current
@@ -389,7 +421,6 @@ fun SmoothGooeyBottomNav(navController: NavHostController) {
 
     var selectedIndex by remember { mutableIntStateOf(0) }
 
-    // Smooth animated offset with more fluid motion
     val animatedOffset by animateFloatAsState(
         targetValue = selectedIndex.toFloat(),
         animationSpec = spring(
@@ -405,7 +436,6 @@ fun SmoothGooeyBottomNav(navController: NavHostController) {
         NavigationItem(Screen.Profile.route, Screen.Profile.title, Screen.Profile.icon)
     )
 
-    // Update selected index when route changes
     LaunchedEffect(currentRoute) {
         val newIndex = navigationItems.indexOfFirst { it.route == currentRoute }
         if (newIndex != -1) {
@@ -426,13 +456,11 @@ fun SmoothGooeyBottomNav(navController: NavHostController) {
                 )
             )
     ) {
-        // Enhanced Canvas with cleaner blob (removed connecting circles)
         Canvas(modifier = Modifier.fillMaxSize()) {
             val itemWidth = size.width / navigationItems.size
             val blobCenterX = itemWidth * (animatedOffset + 0.5f)
             val blobCenterY = size.height / 2f
 
-            // Main pill-shaped background
             drawPillShape(
                 center = Offset(blobCenterX, blobCenterY - 8.dp.toPx()),
                 width = 80.dp.toPx(),
@@ -441,7 +469,6 @@ fun SmoothGooeyBottomNav(navController: NavHostController) {
             )
         }
 
-        // Navigation items with enhanced animations
         Row(
             modifier = Modifier.fillMaxSize(),
             horizontalArrangement = Arrangement.SpaceAround,
@@ -450,20 +477,18 @@ fun SmoothGooeyBottomNav(navController: NavHostController) {
             navigationItems.forEachIndexed { index, navItem ->
                 val isSelected = selectedIndex == index
 
-                // Smooth scale animation
                 val scale by animateFloatAsState(
                     targetValue = if (isSelected) 1.15f else 1.0f,
                     animationSpec = spring(
                         dampingRatio = Spring.DampingRatioMediumBouncy,
-                        stiffness = Spring.StiffnessMedium              // ← Reverted back to original
+                        stiffness = Spring.StiffnessMedium
                     ),
                     label = "iconScale$index"
                 )
 
-                // Color animation
                 val iconColor by animateColorAsState(
                     targetValue = if (isSelected) Color.White else Color.Gray,
-                    animationSpec = tween(300, easing = FastOutSlowInEasing),    // ← Reverted back to 300ms
+                    animationSpec = tween(300, easing = FastOutSlowInEasing),
                     label = "iconColor$index"
                 )
 
@@ -496,30 +521,28 @@ fun SmoothGooeyBottomNav(navController: NavHostController) {
                         Icon(
                             navItem.icon,
                             contentDescription = navItem.label,
-                            tint = if (isSelected) Color(0xFF0000FF) else Color.Gray,  // ← Direct color assignment to ensure it works
+                            tint = if (isSelected) Color(0xFF0000FF) else Color.Gray,
                             modifier = Modifier.size(if (isSelected) 26.dp else 22.dp)
                         )
-
-                        // Enhanced particle effect
+                        
                         SmoothParticleEffect(isSelected)
                     }
 
-                    // Animated label visibility
                     AnimatedVisibility(
                         visible = isSelected,
-                        enter = fadeIn(tween(300)) + slideInVertically(        // ← Reverted back to 300ms
-                            tween(300),                                        // ← Reverted back to 300ms
+                        enter = fadeIn(tween(300)) + slideInVertically(
+                            tween(300),
                             initialOffsetY = { it / 2 }
                         ),
-                        exit = fadeOut(tween(200)) + slideOutVertically(       // ← Reverted back to 200ms
-                            tween(200),                                        // ← Reverted back to 200ms
+                        exit = fadeOut(tween(200)) + slideOutVertically(
+                            tween(200),
                             targetOffsetY = { it / 2 }
                         )
                     ) {
                         Text(
                             text = navItem.label,
                             fontSize = 11.sp,
-                            color = if (isSelected) Color(0xFF0000FF) else Color.Gray,  // ← Also apply same logic to text
+                            color = if (isSelected) Color(0xFF0000FF) else Color.Gray,
                             modifier = Modifier.padding(top = 2.dp)
                         )
                     }
@@ -529,7 +552,6 @@ fun SmoothGooeyBottomNav(navController: NavHostController) {
     }
 }
 
-// Helper function to draw simple pill shape
 fun DrawScope.drawPillShape(
     center: Offset,
     width: Float,
@@ -550,18 +572,16 @@ fun DrawScope.drawPillShape(
             center.y - height / 2f
         ),
         size = Size(width, height),
-        cornerRadius = CornerRadius(height / 2f, height / 2f) // Makes it perfectly pill-shaped
+        cornerRadius = CornerRadius(height / 2f, height / 2f)
     )
 }
 
-// Keep the old smooth blob function as backup
 fun DrawScope.drawSmoothBlob(
     center: Offset,
     radius: Float,
     color: Color
 ) {
     val path = Path().apply {
-        // Create organic blob shape with bezier curves
         val points = 8
         val angleStep = 2 * PI / points
 
@@ -581,8 +601,7 @@ fun DrawScope.drawSmoothBlob(
             if (i == 0) {
                 moveTo(x, y)
             }
-
-            // Control points for smooth curves
+            
             val controlAngle = angle + angleStep / 2
             val controlRadius = radius * 1.1f
             val controlX = center.x + controlRadius * cos(controlAngle).toFloat()
@@ -598,7 +617,7 @@ fun DrawScope.drawSmoothBlob(
         brush = Brush.radialGradient(
             colors = listOf(
                 color.copy(alpha = 0.95f),
-                Color(0xFF1E90FF).copy(alpha = 0.6f)  // ← Updated gradient to use the same blue
+                Color(0xFF1E90FF).copy(alpha = 0.6f)
             ),
             center = center,
             radius = radius
@@ -610,6 +629,7 @@ fun DrawScope.drawSmoothBlob(
 @Composable
 fun HomePreview() {
     PeerRentTheme {
-        UniShareAppScreen()
+        UniShareAppScreen("user@example.com")
     }
 }
+
