@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -8,47 +7,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PeerRentApp.ForceLight">
+
         <activity android:name=".SetNewPasswordActivity" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Splash -->
+            android:theme="@style/Theme.PeerRentApp.ForceLight">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Login -->
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
+
         <activity
             android:name=".CreateAccountActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Create Account -->
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
+
         <activity
             android:name=".ForgetActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for Forget Password/OTP -->
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
+
         <activity
             android:name=".OtpVerificationActivity"
             android:exported="false"
-            android:theme="@style/Theme.PeerRentApp.ForceLight"> <!-- Force Light for OTP Verification -->
-        </activity>
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
 
-        <!-- Add HomeActivity declaration -->
+        <!-- Add HomeActivity -->
         <activity
             android:name=".HomeActivity"
-            android:exported="false"
-            android:label="Home"
-            android:theme="@style/Theme.PeerRentApp.DayNight" />
-        <!-- Regarding the label: You can replace "Home" with a string resource e.g., @string/title_activity_home -->
-        <!-- Regarding the theme: You can use Theme.PeerRentApp.ForceLight or another, adjust as needed -->
+            android:exported="true"
+            android:theme="@style/Theme.PeerRentApp.ForceLight" />
 
-        <!-- Add other post-login activities here; they will inherit Theme.PeerRentApp.DayNight -->
     </application>
 
 </manifest>

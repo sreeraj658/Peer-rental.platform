@@ -1,10 +1,11 @@
 {
     "logs": [
         {
-            "outputFile": "com.ezio.unishare.app-mergeDebugResources-64:/values-v24/values-v24.xml",
+            "outputFile": "com.ezio.unishare.app-mergeDebugResources-38:/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\abhin\\.gradle\\caches\\9.0-milestone-1\\transforms\\77d192ac634dfe2a04ede1c78225c018\\transformed\\appcompat-1.7.0\\res\\values-v24\\values-v24.xml",
+<<<<<<< HEAD
+                    "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\48867f641f616af570f10480a1705f3b\\transformed\\appcompat-1.7.0\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +15,10 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\abhin\\.gradle\\caches\\9.0-milestone-1\\transforms\\2cabff17201ede3bfb7d10f39254ef83\\transformed\\material-1.12.0\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\sreer\\.gradle\\caches\\9.0-milestone-1\\transforms\\06a6d973a78439639a3a8a05549fa7a2\\transformed\\material-1.12.0\\res\\values-v24\\values-v24.xml",
+=======
+                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\af7bb58dfc71f1abc691ff322e0ddd0b\\transformed\\material-1.12.0\\res\\values-v24\\values-v24.xml",
+>>>>>>> e6080c39d99e1e9d55653b2748238a57c7db0ead
                     "from": {
                         "startLines": "2,3,4,5,6,9,12,15",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -30,6 +34,16 @@
                         "endLines": "4,5,6,7,10,13,16,19",
                         "endColumns": "84,98,86,100,10,10,10,10",
                         "endOffsets": "427,526,613,714,913,1126,1327,1542"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\JAYAMOHAN RS\\.gradle\\caches\\9.0-milestone-1\\transforms\\567d12a6912bf2c5703df0ff0052f30c\\transformed\\appcompat-1.7.0\\res\\values-v24\\values-v24.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,212",
+                        "endColumns": "156,134",
+                        "endOffsets": "207,342"
                     }
                 }
             ]
