@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.util.Patterns
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -12,20 +13,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputLayout
-import com.google.firebase.database.FirebaseDatabase
-import android.util.Log
+import com.google.firebase.auth.FirebaseAuth
 
-/**
- * MainActivity
- * Handles user login via Firebase Realtime Database.
- */
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // ------------------ Find Views ------------------
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        // --- Find Views ---
         val collegeMailEditText = findViewById<EditText>(R.id.editTextName)
         val collegeMailLayout = findViewById<TextInputLayout>(R.id.textInputLayoutName)
         val passwordEditText = findViewById<EditText>(R.id.editTextEmail)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val forgotPasswordTextView = findViewById<TextView>(R.id.textViewForgotPassword)
         val shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake_anim)
 
-        // ------------------ Helper: Clear error while typing ------------------
+        // --- Helper to clear errors ---
         fun addTextWatcherToClearError(editText: EditText, layout: TextInputLayout) {
             editText.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -51,18 +51,14 @@ class MainActivity : AppCompatActivity() {
         addTextWatcherToClearError(collegeMailEditText, collegeMailLayout)
         addTextWatcherToClearError(passwordEditText, passwordLayout)
 
-        // ------------------ LOGIN BUTTON ------------------
+        // --- Login Button Logic ---
         joinButton.setOnClickListener {
             val email = collegeMailEditText.text.toString().trim()
             val password = passwordEditText.text.toString().trim()
             var isValid = true
 
-            // ------------------ Input Validation ------------------
-            if (email.isBlank()) {
-                collegeMailLayout.error = "College mail ID is required"
-                collegeMailLayout.startAnimation(shakeAnimation)
-                isValid = false
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            // --- Input Validation ---
+            if (email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 collegeMailLayout.error = "Enter a valid email address"
                 collegeMailLayout.startAnimation(shakeAnimation)
                 isValid = false
@@ -80,50 +76,36 @@ class MainActivity : AppCompatActivity() {
 
             if (!isValid) return@setOnClickListener
 
-            // ------------------ Firebase Login ------------------
-            val database = FirebaseDatabase.getInstance()
-            val usersRef = database.getReference("users")
-            val emailKey = email.replace(".", "_") // Replace "." for Firebase key
+            // --- USE FIREBASE AUTH TO SIGN IN ---
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI and navigate
+                        Log.d("AUTH", "signInWithEmail:success")
+                        Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
 
-            usersRef.child(emailKey).get().addOnSuccessListener { snapshot ->
-                if (snapshot.exists()) {
-                    val storedPassword = snapshot.child("password").getValue(String::class.java)
-                    if (storedPassword == password) {
-                        // ✅ Login successful
-                        Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
-                        Log.d("Login", "User $email logged in successfully")
-
-                        // Navigate to HomeActivity
-                        val intent = Intent(this, HomeActivity::class.java)
-                        // --- THIS IS THE CRUCIAL LINE ---
-                        intent.putExtra("USER_EMAIL", email) // Pass the email to the next screen
-                        // ---------------------------------
+                        val intent = Intent(this, HomeActivity::class.java).apply {
+                            putExtra("USER_EMAIL", email)
+                        }
                         startActivity(intent)
                         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-                        finish() // Prevent back to login
+                        finish() // Prevent user from coming back to login screen
                     } else {
-                        passwordLayout.error = "Invalid password!"
+                        // If sign in fails, display a message to the user.
+                        Log.w("AUTH", "signInWithEmail:failure", task.exception)
+                        Toast.makeText(baseContext, "Authentication failed. Check credentials.", Toast.LENGTH_SHORT).show()
+                        passwordLayout.error = "Invalid email or password"
                         passwordLayout.startAnimation(shakeAnimation)
-                        Toast.makeText(this, "Invalid password!", Toast.LENGTH_LONG).show()
                     }
-                } else {
-                    collegeMailLayout.error = "Invalid email!"
-                    collegeMailLayout.startAnimation(shakeAnimation)
-                    Toast.makeText(this, "Invalid email!", Toast.LENGTH_LONG).show()
                 }
-            }.addOnFailureListener { e ->
-                Toast.makeText(this, "Database error: ${e.message}", Toast.LENGTH_LONG).show()
-                Log.e("Login", "Firebase read error", e)
-            }
         }
 
-        // ------------------ CREATE ACCOUNT ------------------
+        // --- Navigation to other activities ---
         createAccountButton.setOnClickListener {
             startActivity(Intent(this, CreateAccountActivity::class.java))
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
-        // ------------------ FORGOT PASSWORD ------------------
         forgotPasswordTextView.setOnClickListener {
             startActivity(Intent(this, ForgetActivity::class.java))
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)

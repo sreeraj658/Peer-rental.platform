@@ -20,6 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -40,7 +41,7 @@ sealed class ProfileUiState {
     data class Error(val message: String) : ProfileUiState()
 }
 
-@OptIn(ExperimentalMaterial3Api::class) // <-- FIX: Annotation added here
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(modifier: Modifier = Modifier, userEmail: String) {
     var profileUiState by remember { mutableStateOf<ProfileUiState>(ProfileUiState.Loading) }
@@ -149,10 +150,13 @@ fun ProfileContent(user: UserProfile) {
         }
         Spacer(modifier = Modifier.weight(1f)) // Pushes the button to the bottom
 
-        // Logout Button
+        // --- UPDATED LOGOUT BUTTON ---
         Button(
             onClick = {
-                // Navigate back to the login screen and clear all previous screens
+                // 1. Sign out from Firebase Authentication to end the session
+                FirebaseAuth.getInstance().signOut()
+                
+                // 2. Navigate back to the login screen and clear all previous screens
                 val intent = Intent(context, MainActivity::class.java).apply {
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 }
