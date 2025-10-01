@@ -54,7 +54,7 @@ class CreateAccountActivity : AppCompatActivity() {
         textViewPasswordCriteriaErrorsCreate = findViewById(R.id.textViewPasswordCriteriaErrorsCreate)
         val shake = AnimationUtils.loadAnimation(this, R.anim.shake_anim)
 
-        // --- Add Text Watchers to clear errors ---
+        // --- Add Text Watchers to clear errors (your existing code is good) ---
         fun addTextWatcherToClearError(editText: EditText, layout: TextInputLayout) {
             editText.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -89,13 +89,16 @@ class CreateAccountActivity : AppCompatActivity() {
             val password = passwordEditText.text.toString()
             val confirmPassword = confirmPasswordEditText.text.toString()
 
-            var isValid = true
-            // --- Assume your validation logic is here and sets isValid correctly ---
-            // For brevity, the full validation logic is omitted, but it should check all fields.
+            // Assume your existing validation logic runs here and sets a variable 'isValid'
+            var isValid = true 
+            // ... your validation ...
+            if (password != confirmPassword) {
+                isValid = false
+                // ... show error
+            }
 
-            // --- If validation passes, create the user ---
+
             if (isValid) {
-                // Disable button to prevent multiple clicks
                 it.isEnabled = false
                 Toast.makeText(this, "Creating Account...", Toast.LENGTH_SHORT).show()
 
@@ -108,9 +111,8 @@ class CreateAccountActivity : AppCompatActivity() {
                             saveUserDetailsToDatabase(firstName, lastName, email, phone)
 
                             // Send them to the login screen to sign in for the first time
-                            Toast.makeText(this, "Account created successfully! Please log in.", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Account created! Please log in.", Toast.LENGTH_LONG).show()
                             val intent = Intent(this, MainActivity::class.java).apply {
-                                // Clear all previous activities from the stack
                                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             }
                             startActivity(intent)
@@ -124,7 +126,7 @@ class CreateAccountActivity : AppCompatActivity() {
                         }
                     }
             } else {
-                Toast.makeText(this, "Please correct the errors above.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please correct the errors.", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -132,14 +134,13 @@ class CreateAccountActivity : AppCompatActivity() {
     private fun saveUserDetailsToDatabase(firstName: String, lastName: String, email: String, phone: String) {
         val database = FirebaseDatabase.getInstance()
         val usersRef = database.getReference("users")
-        // Use the email as a key, replacing characters that are invalid in Firebase keys
         val key = email.replace(".", "_")
 
         // Create a map of user data. NOTICE: NO PASSWORD IS SAVED.
         val userData = mapOf(
             "firstName" to firstName,
             "lastName" to lastName,
-            "collegeMail" to email, // The field name in your DB
+            "collegeMail" to email, // Matching your database structure
             "phone" to phone
         )
 

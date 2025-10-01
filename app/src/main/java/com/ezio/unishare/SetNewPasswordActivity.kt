@@ -1,17 +1,17 @@
+
 package com.ezio.unishare
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.view.View
-import android.view.animation.Animation
+import android.util.Log
 import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.database.FirebaseDatabase
 
 class SetNewPasswordActivity : AppCompatActivity() {
 
@@ -22,14 +22,11 @@ class SetNewPasswordActivity : AppCompatActivity() {
     private lateinit var buttonSetNewPassword: Button
     private lateinit var textViewPasswordCriteriaErrors: TextView
 
-    private lateinit var shakeAnimation: Animation
-
     private val passwordMinLength = 8
     private val hasUpperCasePattern = ".*[A-Z].*".toRegex()
     private val hasLowerCasePattern = ".*[a-z].*".toRegex()
     private val hasDigitPattern = ".*\\d.*".toRegex()
-    // Definitively correct special character pattern
-    private val hasSpecialCharPattern = ".*[!@#$%^&*()_+\\-=\\[\\]{};':\\\"\\\\|,.<>/?].*".toRegex()
+    private val hasSpecialCharPattern = ".*[!@#\$%^&*()_+\\-=\\[\\]{};':\\\"\\\\|,.<>/?].*".toRegex()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,97 +39,86 @@ class SetNewPasswordActivity : AppCompatActivity() {
         buttonSetNewPassword = findViewById(R.id.buttonSetNewPassword)
         textViewPasswordCriteriaErrors = findViewById(R.id.textViewPasswordCriteriaErrors)
 
-        shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake_anim)
+        val shakeAnimation = AnimationUtils.loadAnimation(this, R.anim.shake_anim)
 
-        // Add TextWatcher for New Password
-        editTextNewPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (!s.isNullOrEmpty()) {
-                    if (textInputLayoutNewPassword.error != null) {
-                        textInputLayoutNewPassword.error = null // Clear error to restore eye icon
-                    }
-                }
-            }
-            override fun afterTextChanged(s: Editable?) {}
-        })
-
-        // Add TextWatcher for Confirm Password
-        editTextConfirmPassword.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (!s.isNullOrEmpty()) {
-                    if (textInputLayoutConfirmPassword.error != null) {
-                        textInputLayoutConfirmPassword.error = null // Clear error to restore eye icon
-                    }
-                }
-            }
-            override fun afterTextChanged(s: Editable?) {}
-        })
+        // ✅ Get verified email from ForgetActivity
+        val userEmail = intent.getStringExtra("EXTRA_EMAIL")
 
         buttonSetNewPassword.setOnClickListener {
-            val newPassword = editTextNewPassword.text.toString().trim()
-            val confirmPassword = editTextConfirmPassword.text.toString().trim()
-
-            textInputLayoutNewPassword.error = null
-            textInputLayoutConfirmPassword.error = null
-            textViewPasswordCriteriaErrors.visibility = View.GONE
-            textViewPasswordCriteriaErrors.text = ""
+            val newPassword = editTextNewPassword.text.toString()
+            val confirmPassword = editTextConfirmPassword.text.toString()
 
             var isValid = true
-            val errorMessages = mutableListOf<String>()
+            val errors = mutableListOf<String>()
 
-            if (newPassword.isEmpty()) {
-                textInputLayoutNewPassword.error = "New password cannot be empty"
+            if (newPassword.length < passwordMinLength) errors.add("At least 8 characters")
+            if (!newPassword.contains(hasUpperCasePattern)) errors.add("At least 1 uppercase letter")
+            if (!newPassword.contains(hasLowerCasePattern)) errors.add("At least 1 lowercase letter")
+            if (!newPassword.contains(hasDigitPattern)) errors.add("At least 1 number")
+            if (!newPassword.contains(hasSpecialCharPattern)) errors.add("At least 1 special character")
+
+            if (errors.isNotEmpty()) {
+                textViewPasswordCriteriaErrors.text = errors.joinToString("\n")
+                textViewPasswordCriteriaErrors.visibility = TextView.VISIBLE
                 textInputLayoutNewPassword.startAnimation(shakeAnimation)
-                Toast.makeText(this, "New password cannot be empty", Toast.LENGTH_SHORT).show()
                 isValid = false
             } else {
-                if (newPassword.length < passwordMinLength) {
-                    errorMessages.add("Password must be at least $passwordMinLength characters long.")
-                }
-                if (!newPassword.matches(hasUpperCasePattern)) {
-                    errorMessages.add("Password must contain at least one uppercase letter.")
-                }
-                if (!newPassword.matches(hasLowerCasePattern)) {
-                    errorMessages.add("Password must contain at least one lowercase letter.")
-                }
-                if (!newPassword.matches(hasDigitPattern)) {
-                    errorMessages.add("Password must contain at least one digit.")
-                }
-                if (!newPassword.matches(hasSpecialCharPattern)) {
-                    errorMessages.add("Password must contain at least one special character (e.g., !@#$%^&*).")
-                }
-
-                if (errorMessages.isNotEmpty()) {
-                    textViewPasswordCriteriaErrors.text = errorMessages.joinToString("\n")
-                    textViewPasswordCriteriaErrors.visibility = View.VISIBLE
-                    textInputLayoutNewPassword.error = "Please check password criteria above."
-                    textInputLayoutNewPassword.startAnimation(shakeAnimation)
-                    isValid = false
-                }
-            }
-
-            if (!isValid) {
-                return@setOnClickListener
-            }
-
-            if (confirmPassword.isEmpty()) {
-                textInputLayoutConfirmPassword.error = "Confirm password cannot be empty"
-                textInputLayoutConfirmPassword.startAnimation(shakeAnimation)
-                Toast.makeText(this, "Confirm password cannot be empty", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                textViewPasswordCriteriaErrors.text = ""
+                textViewPasswordCriteriaErrors.visibility = TextView.GONE
             }
 
             if (newPassword != confirmPassword) {
                 textInputLayoutConfirmPassword.error = "Passwords do not match"
                 textInputLayoutConfirmPassword.startAnimation(shakeAnimation)
-                Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                isValid = false
+            } else {
+                textInputLayoutConfirmPassword.error = null
             }
 
-            Toast.makeText(this, "Password successfully set ", Toast.LENGTH_LONG).show()
-            finish()
+            if (isValid) {
+                if (userEmail.isNullOrBlank()) {
+                    Toast.makeText(this, "Error: Could not identify user. Please start over.", Toast.LENGTH_LONG).show()
+                    return@setOnClickListener
+                }
+
+                it.isEnabled = false
+                Toast.makeText(this, "Updating password...", Toast.LENGTH_SHORT).show()
+
+
+// ✅ Only update in Realtime Database
+                updatePasswordInRealtimeDatabase(userEmail, newPassword) { dbSuccess ->
+                    if (dbSuccess) {
+                        Toast.makeText(this, "Password updated successfully! Please log in with your new password.", Toast.LENGTH_LONG).show()
+
+                        // Navigate back to login screen
+                        val intent = Intent(this, MainActivity::class.java).apply {
+                            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        }
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Failed to update password. Please try again.", Toast.LENGTH_LONG).show()
+                        it.isEnabled = true
+                    }
+                }
+            }
         }
+    }
+
+    private fun updatePasswordInRealtimeDatabase(email: String, newPass: String, onComplete: (Boolean) -> Unit) {
+        val database = FirebaseDatabase.getInstance()
+        val userKey = email.replace(".", "_") // ✅ Ensure key format
+        val userPasswordRef = database.getReference("users").child(userKey).child("password")
+
+        userPasswordRef.setValue(newPass)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Log.d("DB_UPDATE", "Realtime Database password updated.")
+                    onComplete(true)
+                } else {
+                    Log.e("DB_UPDATE", "Failed to update Realtime Database password.", task.exception)
+                    onComplete(false)
+                }
+            }
     }
 }
