@@ -19,6 +19,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // ✅ Check if already logged in (session exists)
+        val sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE)
+        val isLoggedIn = sharedPref.getBoolean("isLoggedIn", false)
+        if (isLoggedIn) {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
         setContentView(R.layout.activity_main)
 
         // --- Find Views ---
@@ -85,7 +96,6 @@ class MainActivity : AppCompatActivity() {
                         Log.d("Login", "User $email logged in successfully")
 
                         // ✅ Save session in SharedPreferences
-                        val sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE)
                         sharedPref.edit().apply {
                             putBoolean("isLoggedIn", true)
                             putString("userEmail", email)
